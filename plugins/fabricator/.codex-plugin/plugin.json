@@ -1,0 +1,24 @@
+{
+  "name": "fabricator",
+  "version": "0.1.0",
+  "description": "Fabricator helps create and maintain reliable Codex plugins.",
+  "author": {
+    "name": "iamjudin"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Фабрикатор / Fabricator",
+    "shortDescription": "Create and maintain reliable Codex plugins.",
+    "longDescription": "Fabricator helps turn a plugin idea or an existing plugin into a clear, testable Codex workflow. Craft handles the creation and maintenance loop; publishing will arrive as a separate skill.",
+    "developerName": "iamjudin",
+    "category": "Productivity",
+    "capabilities": [
+      "Codex plugin creation",
+      "Plugin workflow design",
+      "Official documentation checks",
+      "Runtime and hook isolation",
+      "Validation and Git checkpoints"
+    ],
+    "defaultPrompt": "Use Fabricator: Craft to create or improve a Codex plugin in this project."
+  }
+}
