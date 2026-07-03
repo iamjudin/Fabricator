@@ -1,5 +1,5 @@
 interface:
-  display_name: "Фабрикатор: Крафт / Fabricator: Craft"
+  display_name: "Fabricator: Craft"
   short_description: "Create and maintain Codex plugins."
   default_prompt: "Use Fabricator: Craft to create or improve a Codex plugin in this project."
 policy:
