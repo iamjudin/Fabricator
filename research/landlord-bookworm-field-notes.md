@@ -157,6 +157,11 @@ threads, their current project state, and earlier implementation context.
   plus again. Verify `codex plugin list`, the installed cache version/path, and
   test in a new chat. Do not clean cache or installation tails without explicit
   approval.
+- A later reinstall attempt exposed a separate hook layer: explicit invocation
+  through `$landlord` or the menu governs when the skill workflow activates,
+  but an already-registered lifecycle hook can still fire on `PreToolUse` or
+  `Stop` from a stale installed cache path. In that case the fix is not a
+  skill-invocation rule; it is an install/cache registration recovery.
 
 ### What worked well
 
@@ -189,6 +194,10 @@ threads, their current project state, and earlier implementation context.
   rely on stale platform assumptions.
 - A successful CLI reinstall changes the next user instruction: the right
   smoke-test step is a new chat/thread, not another UI install click.
+- Menu-based or `$`-based activation does not by itself prove hooks are
+  isolated. Fabricator should treat lifecycle hook registration, installed
+  cache files, marketplace metadata, and skill invocation as distinct runtime
+  layers when diagnosing plugin behavior.
 - The best observed pattern is not "always make a huge patch"; it is
   "collect enough related evidence, then patch the whole contract surface that
   defines the behavior."
