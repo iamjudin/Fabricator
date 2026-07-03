@@ -73,7 +73,19 @@ substantive changes.
   evidence.
 - Keep chat logs, approval history, and internal reasoning out of the product
   unless they are deliberately useful to its end user.
+- Craft may handle development-adjacent release mechanics when they are part of
+  creating or maintaining the plugin: version metadata, local marketplace
+  setup, cache-busted local install/reinstall, smoke-test setup, and Git
+  checkpoints. Keep these actions evidence-based and verify current CLI/UI
+  behavior before relying on remembered platform behavior.
+- After a successful cache-busted local reinstall, do not ask the user to
+  repeat installation through the UI unless current evidence shows it is
+  needed. Verify the installed plugin list, cache version/path, and then test
+  in a new chat so the fresh skill/runtime context is loaded. Clean caches or
+  stale install tails only after explicit approval or a demonstrated stale-cache
+  problem.
 - When additional Fabricator skills are installed later, let their precise
-  descriptions route tasks to the correct skill. Do not simulate their missing
-  responsibilities in Craft; publication remains outside Craft until the
-  separate publication skill exists.
+  descriptions route tasks to the correct skill. The future Publish skill is
+  for public publication as a dedicated user-facing workflow: marketplace
+  presentation, public release packaging, release evidence, and final
+  publishing steps like the Bookworm public release work.

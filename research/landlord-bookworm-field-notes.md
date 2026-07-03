@@ -22,10 +22,13 @@ threads, their current project state, and earlier implementation context.
 - Fabricator is an extensible Codex plugin. Its first active focus is the
   Codex-plugin creation skill; other skills may be added as the work reveals a
   real need.
-- A publication skill is planned for later as a separate operational
-  responsibility, not a hidden late step of creation. A future GPT skill is
-  likewise a possible sibling and must not let GPT-era packaging or manual
-  handoff constraints define the creation skill's architecture.
+- A public publication skill is planned for later as a separate user-facing
+  release workflow. Craft may still handle development-adjacent release
+  mechanics for the plugin it is creating or maintaining, such as version
+  metadata, local marketplace setup, cache-busted reinstall and smoke-test
+  preparation. A future GPT skill is likewise a possible sibling and must not
+  let GPT-era packaging or manual handoff constraints define the creation
+  skill's architecture.
 - Shared foundations are welcome only where they are genuinely platform-neutral
   (for example, revision discipline and preservation of user intent). Runtime
   workflow, validation, publishing, and file layout remain skill-specific.
@@ -149,6 +152,11 @@ threads, their current project state, and earlier implementation context.
 - The final reinstall step updated a cache-busted version and confirmed
   installation with the available CLI, then summarized the next smoke-test
   route for a fresh chat.
+- The follow-up Landlord decision made this the main local update behavior:
+  after a confirmed CLI cachebuster/reinstall, do not press the UI install
+  plus again. Verify `codex plugin list`, the installed cache version/path, and
+  test in a new chat. Do not clean cache or installation tails without explicit
+  approval.
 
 ### What worked well
 
@@ -168,10 +176,10 @@ threads, their current project state, and earlier implementation context.
 
 ### Risks and lessons for Fabricator
 
-- Fabricator can drift into release/publish work when the user asks for
-  reinstall. That was appropriate in this Landlord test, but Craft should
-  keep publication as a separate future skill and hand off cleanly once that
-  skill exists.
+- Do not collapse all publication-like work into one bucket. Craft should
+  handle local development release mechanics when they are necessary to test or
+  maintain the plugin. The later Publish skill is for public publication as a
+  dedicated workflow, like the Bookworm marketplace/public-release work.
 - The implementation batch was large enough to be useful, but Craft should
   continue naming scope before edits so the user can stop or narrow a batch
   before product files change.
@@ -179,6 +187,8 @@ threads, their current project state, and earlier implementation context.
   was available in this run, while earlier notes said UI install was required.
   Fabricator should verify current tool behavior at the moment of use and not
   rely on stale platform assumptions.
+- A successful CLI reinstall changes the next user instruction: the right
+  smoke-test step is a new chat/thread, not another UI install click.
 - The best observed pattern is not "always make a huge patch"; it is
   "collect enough related evidence, then patch the whole contract surface that
   defines the behavior."

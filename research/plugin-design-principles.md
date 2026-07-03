@@ -113,18 +113,25 @@ not a substitute for current official Codex documentation.
 
 ## Publishing and maintenance
 
-33. Work locally during development. Publication begins only once a marketplace
-    is being prepared; its detailed release workflow belongs to the future
-    publication skill, not the creation skill's first scope.
+33. Work locally during development, but do not treat all publication-like
+    mechanics as outside Craft. Craft may handle version metadata, local
+    marketplace setup, cache-busted local install/reinstall, smoke-test setup
+    and Git checkpoints when they are part of creating or maintaining the
+    plugin. The future publication skill is for public release as a distinct
+    user-facing workflow.
 34. Treat repository, remote Git host, marketplace, installed cache, and active
     chat as distinct layers. Publishing source code does not prove users run the
     new version; already-open chats can retain the older skill context.
 35. Make public documentation explain the outcome and primary actions, not the
     development machinery. Keep installation/update instructions short and
     correct for the current platform.
-36. Before a local reinstall or publication of a new version, remove the prior
-    installation and its specific stale cache/config tails, verify the target is
-    clean, then install the new version. Do not touch unrelated plugins.
+36. For local development reinstall, prefer the current supported path:
+    cache-bust the version, reinstall through the available CLI/UI mechanism,
+    verify the installed plugin list and cache version/path, then test in a new
+    chat so fresh runtime context is loaded. Do not ask the user to click the
+    UI install/add control again after a confirmed CLI reinstall. Clean stale
+    cache/config tails only after explicit approval or a demonstrated stale
+    cache problem, and never touch unrelated plugins.
 37. Create a Git repository before substantial work if the project is not
     connected to one. Explain the chosen setup briefly, commit validated
     milestones independently, and use a test branch for explicit experiments.
@@ -146,9 +153,10 @@ not a substitute for current official Codex documentation.
   - find the root cause before applying cosmetic fixes;
   - when presenting technical options, recommend one and explain why it fits;
   - communicate in Russian on "ты", in a friendly and professional tone.
-- Publication comes later as its own skill and should be capable of direct Git
-  and marketplace work, while making release evidence explicit rather than
-  reviving ZIP-first handoffs.
+- Public publication comes later as its own skill and should be capable of
+  direct Git and marketplace work, while making release evidence explicit
+  rather than reviving ZIP-first handoffs. Craft still owns local
+  development-release mechanics needed to test and maintain the plugin.
 - Final architecture, manifest details, validation commands, and install/update
   mechanics must be checked against current official Codex documentation before
   they become Fabricator rules.
