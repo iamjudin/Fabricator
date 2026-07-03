@@ -126,3 +126,59 @@ threads, their current project state, and earlier implementation context.
 - Which user corrections are stable preferences: direct repeated corrections
   and explicit rules are candidates; one-off comments should remain context
   until corroborated.
+
+## Fabricator Craft battle test in Landlord, 2026-07-03
+
+### What happened
+
+- Fabricator was invoked in the active Landlord maintenance project and used
+  as a companion for external plugin testing rather than as a clean-room
+  scaffold.
+- The first useful behavior was restraint: when the user said to accumulate
+  knowledge, Fabricator did not edit code or backlog and treated the signal as
+  an observation.
+- When the user explicitly asked whether the observations were being captured,
+  Fabricator added focused backlog items and committed them separately.
+- After more evidence from chat screenshots and a Figma file audit, Fabricator
+  grouped the findings into one implementation batch instead of applying
+  one-off cosmetic fixes.
+- The resulting Landlord changes updated the runtime skill, references,
+  canvas template, test protocol, validator, README, deployment map and backlog
+  status. This is a good example of fixing the rule across definition,
+  application, documentation and checks.
+- The final reinstall step updated a cache-busted version and confirmed
+  installation with the available CLI, then summarized the next smoke-test
+  route for a fresh chat.
+
+### What worked well
+
+- Evidence-first behavior matched the desired workflow: observe, classify,
+  capture, then implement after the user clearly moved from observation to
+  action.
+- Backlog and Git were used correctly: future observations went to backlog,
+  completed work moved to Done, and focused commits recorded each stage.
+- Root-cause framing was good. The Figma problem was not treated as a visual
+  screenshot issue; Fabricator inspected the actual Figma structure and found
+  duplicate styles, missing components, tiny frame heights and overflow-based
+  layout.
+- The implementation reached the validation layer by adding explicit
+  `_scripts/validate.sh` checks for the new Landlord workflow contracts.
+- Communication stayed direct and useful: Fabricator stated what it was doing,
+  why it was safe, and what had not been verified.
+
+### Risks and lessons for Fabricator
+
+- Fabricator can drift into release/publish work when the user asks for
+  reinstall. That was appropriate in this Landlord test, but Craft should
+  keep publication as a separate future skill and hand off cleanly once that
+  skill exists.
+- The implementation batch was large enough to be useful, but Craft should
+  continue naming scope before edits so the user can stop or narrow a batch
+  before product files change.
+- Local CLI behavior changed from earlier expectations: `codex plugin add`
+  was available in this run, while earlier notes said UI install was required.
+  Fabricator should verify current tool behavior at the moment of use and not
+  rely on stale platform assumptions.
+- The best observed pattern is not "always make a huge patch"; it is
+  "collect enough related evidence, then patch the whole contract surface that
+  defines the behavior."
