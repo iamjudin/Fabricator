@@ -32,6 +32,11 @@ Use these principles for every Fabricator Craft task.
 ## User-facing quality
 
 - Keep output oriented to the plugin user, not an agent's internal process.
+- Use the note/chat language for structure, headings, labels, field names and
+  generic wording. Translate foreign terms when the local equivalent is
+  established and reads naturally; keep originals for product/framework/source/
+  brand/publication names, acronyms, professional terms that are more natural
+  in the original, or cases where translation is artificial.
 - Never invent sources, links, behavior claims, or verification results.
 - Check consistency across active instructions, code, tests, documentation,
   configuration, and observed runtime behavior before calling work complete.
