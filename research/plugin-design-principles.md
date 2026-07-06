@@ -122,24 +122,31 @@ not a substitute for current official Codex documentation.
 34. Treat repository, remote Git host, marketplace, installed cache, and active
     chat as distinct layers. Publishing source code does not prove users run the
     new version; already-open chats can retain the older skill context.
-35. Make public documentation explain the outcome and primary actions, not the
+35. For public releases, verify both sides: repository evidence (`main`, tag,
+    GitHub Release, changelog/version) and Codex runtime evidence (marketplace
+    refresh or reinstall, installed cache version/path, and a new-chat smoke
+    test). A clean new chat does not update the installed plugin by itself, and
+    `Try in chat` runs the installed version, not necessarily the latest
+    GitHub release.
+36. Make public documentation explain the outcome and primary actions, not the
     development machinery. Keep installation/update instructions short and
-    correct for the current platform.
-36. For local development reinstall, prefer the current supported path:
+    correct for the current platform. Include a UI-friendly update path when
+    the `codex` CLI may not be available in the user's terminal `PATH`.
+37. For local development reinstall, prefer the current supported path:
     cache-bust the version, reinstall through the available CLI/UI mechanism,
     verify the installed plugin list and cache version/path, then test in a new
     chat so fresh runtime context is loaded. Do not ask the user to click the
     UI install/add control again after a confirmed CLI reinstall. Clean stale
     cache/config tails only after explicit approval or a demonstrated stale
     cache problem, and never touch unrelated plugins.
-37. Create a Git repository before substantial work if the project is not
+38. Create a Git repository before substantial work if the project is not
     connected to one. Explain the chosen setup briefly, commit validated
     milestones independently, and use a test branch for explicit experiments.
-38. Find the root cause before changing symptoms: identify where a behavior is
+39. Find the root cause before changing symptoms: identify where a behavior is
     defined, applied, checked, and documented.
-39. When presenting technical options, state the recommended choice and why it
+40. When presenting technical options, state the recommended choice and why it
     best fits the current Codex project.
-40. Warn before destructive changes, including deletion, replacement, cleanup,
+41. Warn before destructive changes, including deletion, replacement, cleanup,
     cache removal, or history-altering Git operations.
 
 ## Fabricator implications to verify later

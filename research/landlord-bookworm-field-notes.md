@@ -116,6 +116,36 @@ threads, their current project state, and earlier implementation context.
 - Reader output must not expose an internal agent work report. Product-facing
   content and internal quality process should stay separate.
 
+### Public release lessons from Bookworm, 2026-07-06
+
+- A public GitHub release does not automatically update the installed Codex
+  plugin. In the Bookworm `0.1.5` case, GitHub `main`, tag and release were
+  correct, but a clean new chat still used the locally installed `0.1.4`
+  bundle because Codex had not refreshed the marketplace/plugin cache.
+- A clean new chat resets conversation context, not installed plugin state.
+  Public-release tests must verify the installed version, not only the release
+  tag or the fact that the chat is new.
+- Skill chips or deep links shown in chat text can contain stale cache paths
+  such as an old `0.1.3` skill link. Treat those links as evidence to inspect,
+  not as proof of the active runtime version. Check installed cache, plugin
+  list, and observable behavior.
+- For public plugins, the user may not have the `codex` CLI in the system
+  `PATH`. Publish instructions should include the UI path or a clear fallback
+  instead of assuming terminal access works.
+- `Try in chat` launches the installed plugin version. It should not be
+  presented as equivalent to "download the latest GitHub release now."
+- The public README should explain what the plugin does for a person, not the
+  internal development machinery. Bookworm's README improved after removing
+  implementation details and keeping only the purpose, skills, installation,
+  update and license.
+- Public release evidence must include both repository evidence and Codex
+  runtime evidence: pushed `main`, tag, GitHub Release, changelog/version,
+  plugin validation, and a post-update check that Codex loads the intended
+  version in a new chat.
+- If the public release is followed by a hotfix, do not assume users are now on
+  the hotfix. The update step is its own explicit workflow: marketplace upgrade
+  or reinstall, then version verification.
+
 ## Questions to carry into Fabricator design
 
 - Which workflow stages deserve an enforceable hook, and which should remain
