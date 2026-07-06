@@ -145,6 +145,18 @@ threads, their current project state, and earlier implementation context.
 - If the public release is followed by a hotfix, do not assume users are now on
   the hotfix. The update step is its own explicit workflow: marketplace upgrade
   or reinstall, then version verification.
+- The root cause of the Bookworm `0.1.5` update failure was the marketplace
+  clone, not only the installed plugin cache. Removing and reinstalling the
+  plugin still reinstalled `0.1.3` because Codex copied from the stale local
+  marketplace clone at `~/.codex/.tmp/marketplaces/bookworm`.
+- The successful public-update sequence was: use **Upgrade marketplace** first
+  to refresh the local marketplace clone, then use **Upgrade** on the plugin,
+  then open a new chat and ask/check the loaded version. After marketplace
+  upgrade, Bookworm's local marketplace clone moved to commit `7102b09` /
+  `v0.1.5`, and `plugin.json` showed `0.1.5+codex.20260706164736`.
+- If reinstalling a public plugin keeps returning an old version, inspect the
+  marketplace clone revision/manifest before blaming the GitHub release or the
+  plugin install step.
 
 ## Questions to carry into Fabricator design
 
