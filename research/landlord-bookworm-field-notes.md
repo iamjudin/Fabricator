@@ -204,6 +204,13 @@ threads, their current project state, and earlier implementation context.
   but an already-registered lifecycle hook can still fire on `PreToolUse` or
   `Stop` from a stale installed cache path. In that case the fix is not a
   skill-invocation rule; it is an install/cache registration recovery.
+- A later dev-safe update fix exposed a more specific root cause: `hooks.json`
+  commands that expand to a versioned installed-cache path can keep pointing at
+  a removed bundle inside an already loaded thread after a cachebuster update.
+  Landlord addressed this with a fail-open wrapper, a validator that rejects
+  direct fragile hook paths, and an explicit rule to update hook-bearing plugins
+  from an external terminal or a fresh Codex session rather than from the
+  currently hooked thread.
 
 ### What worked well
 
@@ -240,6 +247,11 @@ threads, their current project state, and earlier implementation context.
   isolated. Fabricator should treat lifecycle hook registration, installed
   cache files, marketplace metadata, and skill invocation as distinct runtime
   layers when diagnosing plugin behavior.
+- For plugins with lifecycle hooks, Fabricator should design the hook command
+  and update workflow together. Prefer a stable wrapper or other cache-resilient
+  command path, validate that fragile versioned cache paths cannot return, and
+  warn the user before updating a hook plugin from a thread that may already
+  hold the old hook registration.
 - The best observed pattern is not "always make a huge patch"; it is
   "collect enough related evidence, then patch the whole contract surface that
   defines the behavior."

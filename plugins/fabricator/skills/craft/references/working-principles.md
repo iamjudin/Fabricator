@@ -28,6 +28,12 @@ Use these principles for every Fabricator Craft task.
 - Use current official sources when platform behavior or a technical obstacle
   is uncertain. Keep any workaround narrow, reversible, and separate from the
   product contract.
+- If a plugin uses lifecycle hooks, design the hook command and the update
+  workflow as one contract. Avoid direct fragile versioned installed-cache paths
+  where a cachebuster can leave the active thread pointing at a removed bundle;
+  prefer a stable wrapper or other cache-resilient route, add validation so the
+  fragile path cannot return, and warn before updating hook-bearing plugins from
+  a thread that may already hold the old hook registration.
 
 ## User-facing quality
 
