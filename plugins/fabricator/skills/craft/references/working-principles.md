@@ -34,6 +34,10 @@ Use these principles for every Fabricator Craft task.
   prefer a stable wrapper or other cache-resilient route, add validation so the
   fragile path cannot return, and warn before updating hook-bearing plugins from
   a thread that may already hold the old hook registration.
+- For pre-public plugin development, use hard-clean plus Codex UI install as
+  the default runtime update workflow. Use CLI reinstall to diagnose installed
+  state, marketplace/cache paths, and stale tails, not as the trusted user-facing
+  update path unless current platform evidence proves otherwise.
 
 ## User-facing quality
 

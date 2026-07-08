@@ -194,11 +194,10 @@ threads, their current project state, and earlier implementation context.
 - The final reinstall step updated a cache-busted version and confirmed
   installation with the available CLI, then summarized the next smoke-test
   route for a fresh chat.
-- The follow-up Landlord decision made this the main local update behavior:
-  after a confirmed CLI cachebuster/reinstall, do not press the UI install
-  plus again. Verify `codex plugin list`, the installed cache version/path, and
-  test in a new chat. Do not clean cache or installation tails without explicit
-  approval.
+- The follow-up Landlord decision at that time made CLI cachebuster/reinstall
+  the main local update behavior: verify `codex plugin list`, the installed
+  cache version/path, and test in a new chat. Later pre-public evidence
+  superseded this as the default rule; see the later note below.
 - A later reinstall attempt exposed a separate hook layer: explicit invocation
   through `$landlord` or the menu governs when the skill workflow activates,
   but an already-registered lifecycle hook can still fire on `PreToolUse` or
@@ -211,6 +210,13 @@ threads, their current project state, and earlier implementation context.
   direct fragile hook paths, and an explicit rule to update hook-bearing plugins
   from an external terminal or a fresh Codex session rather than from the
   currently hooked thread.
+- Later pre-public plugin development evidence superseded the earlier
+  CLI-first reinstall habit: the reliable development workflow is hard-clean
+  stale installed/cache/marketplace tails for the target plugin, install through
+  the Codex UI, then verify in a fresh chat. CLI reinstall is useful as
+  diagnostics for stale state and path/version evidence, but should not be the
+  trusted install/update path before public release unless current platform
+  evidence proves otherwise.
 
 ### What worked well
 
@@ -237,12 +243,10 @@ threads, their current project state, and earlier implementation context.
 - The implementation batch was large enough to be useful, but Craft should
   continue naming scope before edits so the user can stop or narrow a batch
   before product files change.
-- Local CLI behavior changed from earlier expectations: `codex plugin add`
-  was available in this run, while earlier notes said UI install was required.
-  Fabricator should verify current tool behavior at the moment of use and not
-  rely on stale platform assumptions.
-- A successful CLI reinstall changes the next user instruction: the right
-  smoke-test step is a new chat/thread, not another UI install click.
+- Local CLI behavior changed from earlier expectations during this run, but
+  later pre-public evidence narrowed the rule again: use CLI reinstall for
+  diagnosis and path/version evidence, while the reliable development update is
+  hard-clean plus UI install followed by a fresh-chat smoke test.
 - Menu-based or `$`-based activation does not by itself prove hooks are
   isolated. Fabricator should treat lifecycle hook registration, installed
   cache files, marketplace metadata, and skill invocation as distinct runtime
