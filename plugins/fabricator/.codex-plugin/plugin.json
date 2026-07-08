@@ -1,6 +1,6 @@
 {
   "name": "fabricator",
-  "version": "0.1.0+codex.20260708121230",
+  "version": "0.1.1+codex.20260708202338",
   "description": "Fabricator helps create and maintain reliable Codex plugins.",
   "author": {
     "name": "iamjudin"
@@ -19,6 +19,6 @@
       "Runtime and hook isolation",
       "Validation and Git checkpoints"
     ],
-    "defaultPrompt": "Use Fabricator: Craft to create or improve a Codex plugin in this project."
+    "defaultPrompt": "Use Fabricator: Craft to create or improve a Codex plugin in this project. For pre-public plugin updates, validated source changes are not complete until the scoped hard-clean, Codex UI install handoff, installed-version/path verification, and fresh-chat runtime check are done or explicitly reported as blocked."
   }
 }

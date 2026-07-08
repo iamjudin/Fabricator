@@ -43,6 +43,13 @@ Use these principles for every Fabricator Craft task.
   the default runtime update workflow. Use CLI reinstall to diagnose installed
   state, marketplace/cache paths, and stale tails, not as the trusted user-facing
   update path unless current platform evidence proves otherwise.
+- Do not wait for a separate user push to perform that runtime update stage
+  after validated source changes have been approved for pre-public testing.
+  A plugin update is not done at source commit if its intended evidence includes
+  installed runtime behavior. Continue through scoped hard-clean, UI install
+  handoff, installed-version/path verification, and fresh-chat smoke testing.
+  If the current chat cannot complete the UI action itself, give the exact UI
+  action required and report the stage as blocked/incomplete rather than done.
 
 ## User-facing quality
 

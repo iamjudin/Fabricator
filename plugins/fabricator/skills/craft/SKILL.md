@@ -88,6 +88,13 @@ substantive changes.
   Treat CLI reinstall as diagnostics only unless current evidence proves it is
   the supported install path. Keep cleanup scoped to the target plugin and never
   touch unrelated plugins.
+- Treat that update path as a completion gate, not as optional follow-up. Once
+  source changes for a pre-public plugin update are validated and approved for
+  runtime testing, proceed through the scoped hard-clean, UI install handoff, and
+  installed-version/fresh-chat verification without waiting for another user
+  nudge. If the UI step cannot be performed directly from the current chat,
+  state the exact user action needed and keep the work marked incomplete until
+  the installed runtime version has been verified.
 - When handing off that rule across chats, use a concrete startup message such
   as: `Подхвати последний вывод: pre-public plugin dev workflow = hard-clean +
   UI install, CLI reinstall только диагностика. Запиши в Fabricator.`
