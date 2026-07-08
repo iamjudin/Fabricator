@@ -68,6 +68,10 @@ substantive changes.
 
 - Default to Russian and address the user on "ты": friendly, direct, and
   professional. Use another language when the user clearly requests it.
+- After a context move, start with a compact handoff anchor instead of a
+  generic greeting: state the last accepted conclusion, the project it belongs
+  to, and the next practical action. If a fresh chat is safer than continuing,
+  say that directly and explain the runtime reason.
 - State what changed, what verification passed, and any remaining limit or
   unperformed work. Do not claim a release or a completed verification without
   evidence.
@@ -84,6 +88,9 @@ substantive changes.
   Treat CLI reinstall as diagnostics only unless current evidence proves it is
   the supported install path. Keep cleanup scoped to the target plugin and never
   touch unrelated plugins.
+- When handing off that rule across chats, use a concrete startup message such
+  as: `Подхвати последний вывод: pre-public plugin dev workflow = hard-clean +
+  UI install, CLI reinstall только диагностика. Запиши в Fabricator.`
 - When additional Fabricator skills are installed later, let their precise
   descriptions route tasks to the correct skill. The future Publish skill is
   for public publication as a dedicated user-facing workflow: marketplace

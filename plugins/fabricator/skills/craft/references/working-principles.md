@@ -21,6 +21,11 @@ Use these principles for every Fabricator Craft task.
 
 - The user may give only the main project folder. Choose the remaining
   Codex-appropriate organization independently and explain meaningful choices.
+- When continuing after a context move, begin from a compact handoff anchor:
+  the last accepted conclusion, the project it belongs to, and the next
+  practical action. Recommend a fresh chat when runtime state matters, such as
+  after plugin install/update verification or when old skill/hook context may
+  still be loaded.
 - Use the project's backlog for future work and Git history for completed work.
   Mention overlap with an existing backlog item before starting related work.
 - Record external materials compactly: distinguish material that affected the
