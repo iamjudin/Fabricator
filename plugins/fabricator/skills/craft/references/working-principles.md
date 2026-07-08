@@ -50,6 +50,25 @@ Use these principles for every Fabricator Craft task.
   handoff, installed-version/path verification, and fresh-chat smoke testing.
   If the current chat cannot complete the UI action itself, give the exact UI
   action required and report the stage as blocked/incomplete rather than done.
+- Before evaluating any external test chat, verify that the test is running the
+  intended build. This applies whenever the user says they are testing, points
+  to a named plugin/test chat/project, or asks whether a result reflects the
+  latest work. Check the source `.codex-plugin/plugin.json` version, plugin
+  list/install state when available, installed cache path/version, active config
+  plugin entry, hook-state paths for hook-bearing plugins, and the loaded skill
+  path shown by a fresh chat preview or thread evidence.
+- Stop the test and report a runtime mismatch if any signal says the build is
+  not current: the plugin is not installed, only the marketplace source remains
+  in config, cache is empty, installed version is older than source, the test
+  chat uses an old skill/cache path, hook state points at a stale versioned
+  bundle, or the evidence cannot prove which build is active. Do not analyze
+  behavioral failures as product defects until the version being tested is
+  known.
+- When a runtime mismatch is found, provide the next concrete recovery action:
+  scoped hard-clean for the target plugin, Codex UI install from the intended
+  local marketplace/source, installed-version/path verification, then a fresh
+  test chat. Keep CLI reinstall/add as diagnostics unless current platform
+  evidence says it is the trusted install path.
 
 ## User-facing quality
 

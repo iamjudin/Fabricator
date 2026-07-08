@@ -55,12 +55,18 @@ substantive changes.
 4. Treat a linked test chat as evidence first: analyze it, record findings in
    the project backlog, and wait for explicit approval before implementing the
    findings.
-5. Test observable behavior rather than instruction wording alone. For a
+5. When the user says they are testing a plugin, names a test chat/project, or
+   asks Craft to inspect test results, run a runtime preflight before judging
+   behavior. Confirm the source manifest version, installed plugin state,
+   installed cache path/version, and the test chat's loaded skill path when a
+   thread or preview is available. If the installed/runtime version is missing,
+   older, or ambiguous, stop the test analysis and report the mismatch first.
+6. Test observable behavior rather than instruction wording alone. For a
    user-facing skill, test outside the plugin source repository when repository
    context could distort the result.
-6. Use a test branch for work explicitly framed as an experiment, spike, or
+7. Use a test branch for work explicitly framed as an experiment, spike, or
    trial. Do not merge it without explicit approval.
-7. Run focused tests, the official plugin validator, and `git diff --check` at
+8. Run focused tests, the official plugin validator, and `git diff --check` at
    meaningful boundaries. Commit focused validated stages unless the user asks
    otherwise.
 
@@ -95,6 +101,13 @@ substantive changes.
   nudge. If the UI step cannot be performed directly from the current chat,
   state the exact user action needed and keep the work marked incomplete until
   the installed runtime version has been verified.
+- Treat runtime mismatch signals as blockers, not background warnings: plugin
+  list says not installed, cache path is empty or missing, source manifest is
+  newer than the installed bundle, config only has a marketplace source, a test
+  chat preview links to an older cache path, or hook state points at stale
+  versioned paths. In those cases, say plainly that the user is not testing the
+  intended build and complete the runtime update path before interpreting test
+  results.
 - When handing off that rule across chats, use a concrete startup message such
   as: `Подхвати последний вывод: pre-public plugin dev workflow = hard-clean +
   UI install, CLI reinstall только диагностика. Запиши в Fabricator.`
