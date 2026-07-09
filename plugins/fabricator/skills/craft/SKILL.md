@@ -88,19 +88,23 @@ substantive changes.
   setup, cache-busted local install/update, smoke-test setup, and Git
   checkpoints. Keep these actions evidence-based and verify current CLI/UI
   behavior before relying on remembered platform behavior.
-- For pre-public plugin development, prefer the current reliable update path:
-  hard-clean stale installed/cache/marketplace tails for the target plugin
-  after approval, then install through the Codex UI and verify in a fresh chat.
-  Treat CLI reinstall as diagnostics only unless current evidence proves it is
-  the supported install path. Keep cleanup scoped to the target plugin and never
-  touch unrelated plugins.
-- Treat that update path as a completion gate, not as optional follow-up. Once
-  source changes for a pre-public plugin update are validated and approved for
-  runtime testing, proceed through the scoped hard-clean, UI install handoff, and
-  installed-version/fresh-chat verification without waiting for another user
-  nudge. If the UI step cannot be performed directly from the current chat,
-  state the exact user action needed and keep the work marked incomplete until
-  the installed runtime version has been verified.
+- When the user says to take plugin changes into work, treat that as approval
+  for the whole pre-public runtime update path, not only source edits. Definition
+  of done includes validated source changes, a focused commit, scoped uninstall
+  or hard-clean of the target plugin's installed runtime, reinstall from the
+  intended local marketplace/source, installed cache/version verification, and a
+  restart/fresh-chat boundary for final smoke testing.
+- Prefer self-service runtime completion. Use trusted Codex plugin commands such
+  as `codex plugin remove <plugin@marketplace>` and
+  `codex plugin add <plugin@marketplace>` when current evidence shows they work
+  for the target marketplace. Fall back to UI install only when CLI commands are
+  unavailable, fail, or current platform evidence says the UI path is required.
+  Do not offload uninstall/install/cache cleanup to the user merely because it is
+  outside source editing.
+- Keep cleanup scoped to the target plugin and never touch unrelated plugins.
+  Back up config before hand-editing installed state, prefer official
+  remove/add commands over manual edits, and verify the result with plugin list,
+  cache manifest, and source manifest comparisons.
 - Treat runtime mismatch signals as blockers, not background warnings: plugin
   list says not installed, cache path is empty or missing, source manifest is
   newer than the installed bundle, config only has a marketplace source, a test

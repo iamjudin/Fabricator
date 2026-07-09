@@ -39,17 +39,25 @@ Use these principles for every Fabricator Craft task.
   prefer a stable wrapper or other cache-resilient route, add validation so the
   fragile path cannot return, and warn before updating hook-bearing plugins from
   a thread that may already hold the old hook registration.
-- For pre-public plugin development, use hard-clean plus Codex UI install as
-  the default runtime update workflow. Use CLI reinstall to diagnose installed
-  state, marketplace/cache paths, and stale tails, not as the trusted user-facing
-  update path unless current platform evidence proves otherwise.
-- Do not wait for a separate user push to perform that runtime update stage
-  after validated source changes have been approved for pre-public testing.
-  A plugin update is not done at source commit if its intended evidence includes
-  installed runtime behavior. Continue through scoped hard-clean, UI install
-  handoff, installed-version/path verification, and fresh-chat smoke testing.
-  If the current chat cannot complete the UI action itself, give the exact UI
-  action required and report the stage as blocked/incomplete rather than done.
+- When the user says to take a plugin's changes into work, the accepted scope is
+  the complete implementation-to-runtime path unless the user explicitly narrows
+  it. Do not stop at source edits, validation, or a Git commit when the change
+  is meant to be tested as an installed Codex plugin.
+- Definition of done for a pre-public plugin update includes: validated source
+  changes, focused checkpoint commit, scoped uninstall or hard-clean of the
+  target installed runtime, reinstall from the intended local marketplace/source,
+  installed-version/path verification, cache manifest comparison against source,
+  and a restart/fresh-chat boundary for final smoke testing.
+- Prefer doing uninstall/install yourself with trusted Codex plugin commands
+  such as `codex plugin remove <plugin@marketplace>` and
+  `codex plugin add <plugin@marketplace>` when current evidence shows they work.
+  Use UI install only as a fallback when commands are unavailable or fail, and
+  do not ask the user to do manual uninstall/install/cache work while an agent
+  path is available.
+- Keep runtime cleanup narrowly scoped. Remove only the target plugin's installed
+  state/cache/stale tails, preserve marketplace source unless intentionally
+  changing it, back up config before any manual config edit, and never touch
+  neighboring plugins as part of a target plugin update.
 - Before evaluating any external test chat, verify that the test is running the
   intended build. This applies whenever the user says they are testing, points
   to a named plugin/test chat/project, or asks whether a result reflects the
@@ -65,10 +73,10 @@ Use these principles for every Fabricator Craft task.
   behavioral failures as product defects until the version being tested is
   known.
 - When a runtime mismatch is found, provide the next concrete recovery action:
-  scoped hard-clean for the target plugin, Codex UI install from the intended
-  local marketplace/source, installed-version/path verification, then a fresh
-  test chat. Keep CLI reinstall/add as diagnostics unless current platform
-  evidence says it is the trusted install path.
+  scoped uninstall/hard-clean for the target plugin, reinstall from the intended
+  local marketplace/source, installed-version/path verification, restart Codex
+  when needed, then a fresh test chat. Prefer self-service commands first; leave
+  a manual UI instruction only when no verified agent path remains.
 
 ## User-facing quality
 
