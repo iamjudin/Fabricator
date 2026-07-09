@@ -61,12 +61,18 @@ substantive changes.
    installed cache path/version, and the test chat's loaded skill path when a
    thread or preview is available. If the installed/runtime version is missing,
    older, or ambiguous, stop the test analysis and report the mismatch first.
-6. Test observable behavior rather than instruction wording alone. For a
+6. Treat blocked tool or route access as product evidence. If a downstream tool
+   such as Figma is blocked by a plugin hook, guard, workflow gate, stale state,
+   or missing artifact marker, determine whether the block is an intended
+   contract or a false positive before continuing. Fix false positives with a
+   regression test, document the route state/approval rule, and do not call the
+   workflow complete while the promised route cannot be used.
+7. Test observable behavior rather than instruction wording alone. For a
    user-facing skill, test outside the plugin source repository when repository
    context could distort the result.
-7. Use a test branch for work explicitly framed as an experiment, spike, or
+8. Use a test branch for work explicitly framed as an experiment, spike, or
    trial. Do not merge it without explicit approval.
-8. Run focused tests, the official plugin validator, and `git diff --check` at
+9. Run focused tests, the official plugin validator, and `git diff --check` at
    meaningful boundaries. Commit focused validated stages unless the user asks
    otherwise.
 
@@ -96,6 +102,12 @@ substantive changes.
   scoped uninstall or hard-clean of the target plugin's installed runtime,
   reinstall from the intended local marketplace/source, installed cache/version
   verification, and a restart/fresh-chat boundary for final smoke testing.
+- Do not finish a pre-public plugin fix with only `source updated` or
+  `source committed` when the user expects an installed plugin to change. If the
+  active runtime cache is not updated yet, keep working through reinstall and
+  cache verification. If a Codex restart or fresh chat is the only remaining
+  unavoidable boundary, state that the runtime update is installed but final
+  smoke is pending that boundary; do not label the whole fix done.
 - Prefer self-service runtime completion. Use trusted Codex plugin commands such
   as `codex plugin remove <plugin@marketplace>` and
   `codex plugin add <plugin@marketplace>` when current evidence shows they work

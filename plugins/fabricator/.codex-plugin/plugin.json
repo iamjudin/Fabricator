@@ -1,6 +1,6 @@
 {
   "name": "fabricator",
-  "version": "0.1.4+codex.20260709134526",
+  "version": "0.1.5+codex.20260709192251",
   "description": "Fabricator helps create and maintain reliable Codex plugins.",
   "author": {
     "name": "iamjudin"
@@ -19,6 +19,6 @@
       "Runtime and hook isolation",
       "Validation and Git checkpoints"
     ],
-    "defaultPrompt": "Use Fabricator: Craft to create or improve a Codex plugin in this project. Distinguish accumulation mode from implementation mode: while the user is collecting or clarifying findings, record and group them; once the user approves implementation, the scope includes source edits, validation, commit, scoped uninstall/hard-clean, reinstall from the intended local marketplace/source, installed cache/version verification, and restart/fresh-chat boundary unless explicitly narrowed. Prefer doing uninstall/install yourself with trusted Codex plugin commands before asking for manual UI work. When the user says they are testing a plugin or names a test chat/project, first verify that the installed runtime build matches the source version and that the test chat loaded that build; if not, stop and report the mismatch before analyzing results."
+    "defaultPrompt": "Use Fabricator: Craft to create or improve a Codex plugin in this project. Distinguish accumulation mode from implementation mode: while the user is collecting or clarifying findings, record and group them; once the user approves implementation, the scope includes source edits, validation, commit, scoped uninstall/hard-clean, reinstall from the intended local marketplace/source, installed cache/version verification, and restart/fresh-chat boundary unless explicitly narrowed. Never finish a pre-public plugin fix as source-only when the expected surface is the installed plugin; continue through runtime reinstall/preflight yourself, and mark only the unavoidable restart/fresh-chat smoke as pending. Prefer doing uninstall/install yourself with trusted Codex plugin commands before asking for manual UI work. When the user says they are testing a plugin or names a test chat/project, first verify that the installed runtime build matches the source version and that the test chat loaded that build; if not, stop and report the mismatch before analyzing results. Treat blocked promised routes such as Figma as production signals: inspect guard/state/cache causes, fix false positives with regression coverage, and do not call the workflow complete while the route cannot be used."
   }
 }

@@ -52,6 +52,12 @@ Use these principles for every Fabricator Craft task.
   target installed runtime, reinstall from the intended local marketplace/source,
   installed-version/path verification, cache manifest comparison against source,
   and a restart/fresh-chat boundary for final smoke testing.
+- A source-only fix is not done when the user's expected surface is the installed
+  plugin. Do not end with "source updated", "source committed", or "cache still
+  needs reinstall" as the final state unless the user explicitly narrowed the
+  task to source only. Continue through cachebuster/reinstall/runtime preflight
+  yourself; if the only remaining step is an unavoidable Codex restart or fresh
+  chat, name the exact boundary and treat final smoke as pending that boundary.
 - Prefer doing uninstall/install yourself with trusted Codex plugin commands
   such as `codex plugin remove <plugin@marketplace>` and
   `codex plugin add <plugin@marketplace>` when current evidence shows they work.
@@ -81,6 +87,14 @@ Use these principles for every Fabricator Craft task.
   local marketplace/source, installed-version/path verification, restart Codex
   when needed, then a fresh test chat. Prefer self-service commands first; leave
   a manual UI instruction only when no verified agent path remains.
+- Treat tool-route blocks as first-class production signals. If a workflow
+  promises a route through Figma, browser, GitHub, or another connector, and a
+  hook/guard/state machine blocks that route, inspect the blocking condition
+  before continuing. Decide whether it is an intended gate, a stale runtime
+  artifact, a missing marker, or a false positive. A false positive requires a
+  source fix, regression test, documentation/backlog update, reinstall/runtime
+  verification for plugin work, and a renewed smoke attempt or explicit
+  "pending restart/fresh chat" boundary.
 
 ## User-facing quality
 
