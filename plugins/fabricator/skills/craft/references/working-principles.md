@@ -39,10 +39,14 @@ Use these principles for every Fabricator Craft task.
   prefer a stable wrapper or other cache-resilient route, add validation so the
   fragile path cannot return, and warn before updating hook-bearing plugins from
   a thread that may already hold the old hook registration.
-- When the user says to take a plugin's changes into work, the accepted scope is
-  the complete implementation-to-runtime path unless the user explicitly narrows
-  it. Do not stop at source edits, validation, or a Git commit when the change
-  is meant to be tested as an installed Codex plugin.
+- Treat plugin maintenance as two modes. In accumulation mode, the user is
+  gathering findings, screenshots, comments, research, and corrections; record,
+  group, and preserve them without changing source unless explicitly asked.
+  In implementation mode, the user has approved turning accumulated findings
+  into product changes; the accepted scope is the complete
+  implementation-to-runtime path unless explicitly narrowed. Do not stop at
+  source edits, validation, or a Git commit when the change is meant to be
+  tested as an installed Codex plugin.
 - Definition of done for a pre-public plugin update includes: validated source
   changes, focused checkpoint commit, scoped uninstall or hard-clean of the
   target installed runtime, reinstall from the intended local marketplace/source,

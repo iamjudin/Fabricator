@@ -88,12 +88,14 @@ substantive changes.
   setup, cache-busted local install/update, smoke-test setup, and Git
   checkpoints. Keep these actions evidence-based and verify current CLI/UI
   behavior before relying on remembered platform behavior.
-- When the user says to take plugin changes into work, treat that as approval
-  for the whole pre-public runtime update path, not only source edits. Definition
-  of done includes validated source changes, a focused commit, scoped uninstall
-  or hard-clean of the target plugin's installed runtime, reinstall from the
-  intended local marketplace/source, installed cache/version verification, and a
-  restart/fresh-chat boundary for final smoke testing.
+- Distinguish accumulation from implementation. While the user is collecting,
+  clarifying, or grouping findings, record and organize them without changing
+  source unless asked. Once the user confirms the implementation stage, that
+  approval covers the whole pre-public runtime update path, not only source
+  edits. Definition of done includes validated source changes, a focused commit,
+  scoped uninstall or hard-clean of the target plugin's installed runtime,
+  reinstall from the intended local marketplace/source, installed cache/version
+  verification, and a restart/fresh-chat boundary for final smoke testing.
 - Prefer self-service runtime completion. Use trusted Codex plugin commands such
   as `codex plugin remove <plugin@marketplace>` and
   `codex plugin add <plugin@marketplace>` when current evidence shows they work
