@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.8] - 2026-07-15
+
+- Removed the public README Development block so the main GitHub page stays
+  focused on users rather than internal validation commands.
+- Updated Publish gates so contributor validation belongs in contributing docs,
+  CI, or release checklists instead of being required on the main README page.
+
 ## [0.2.7] - 2026-07-15
 
 - Updated README-visible public positioning so the GitHub page reflects the new

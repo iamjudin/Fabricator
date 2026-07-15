@@ -119,6 +119,8 @@ def validate_public_docs() -> None:
             fail(f"README is missing {required}")
     if "codex plugin marketplace add iamjudin/Fabricator" not in readme:
         fail("README install command must mention iamjudin/Fabricator")
+    if "\n## Development\n" in readme or "scripts/validate.sh" in readme:
+        fail("README must not expose internal development commands as a main public section")
     checklist = (ROOT / "docs" / "release-checklist.md").read_text(encoding="utf-8")
     if "Public Page Done" not in checklist:
         fail("release checklist must include Public Page Done")

@@ -13,8 +13,8 @@ Use this before tagging a public Fabricator release.
 
 ## Repository
 
-- Confirm `README.md` explains what, why, install, use, update, development,
-  and license.
+- Confirm `README.md` explains what, why, install, use, update, and license
+  without a main-page internal development command block.
 - Confirm `README.md` visible content matches the release being published.
 - Confirm `CHANGELOG.md` includes the release entry before tagging.
 - Confirm `LICENSE`, `CHANGELOG.md`, and `CONTRIBUTING.md` are current.

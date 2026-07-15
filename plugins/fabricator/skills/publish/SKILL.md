@@ -61,7 +61,8 @@ For the Codex plugin package, verify:
 
 Verify public repository presentation:
 
-1. README answers what, why, install, use, update, development, license.
+1. README answers what, why, install, use, update, and license without exposing
+   internal development commands as a main public section.
 2. README commands match the actual package layout and marketplace name.
 3. Visuals are used only when useful. A banner is optional, not mandatory.
 4. `LICENSE`, `CHANGELOG.md`, and `CONTRIBUTING.md` exist when the project is

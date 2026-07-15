@@ -76,17 +76,6 @@ codex plugin marketplace upgrade fabricator
 
 Then upgrade or reinstall Fabricator in Plugins and start a new chat.
 
-## Development
-
-Validate the repository from the root:
-
-```bash
-scripts/validate.sh
-git diff --check
-```
-
-The plugin package lives in `plugins/fabricator`.
-
 ## Contributing
 
 Issues and pull requests are welcome for bug reports, documentation fixes,

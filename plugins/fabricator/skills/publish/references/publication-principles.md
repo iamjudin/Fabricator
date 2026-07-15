@@ -30,9 +30,10 @@ Use these principles for every Fabricator Publish task.
 ## Repository Presentation
 
 - README must explain what the plugin does, why it matters, installation,
-  usage, update path, development validation, and license.
+  usage, update path, and license.
 - Keep README public-facing. Do not expose internal development machinery
-  unless it helps a public user or contributor.
+  on the main page. Contributor validation belongs in `CONTRIBUTING.md`, CI, or
+  the release checklist unless the project has a strong reason to surface it.
 - Visuals are useful when they show the product. A banner is optional.
 - `LICENSE`, `CHANGELOG.md`, `CONTRIBUTING.md`, issue templates, PR template,
   and CI are release readiness signals for public projects.
