@@ -75,6 +75,13 @@ Verify public repository presentation:
    by the change.
 9. Do not treat build/runtime checks as sufficient release evidence if the
    public repository page still describes the old behavior.
+10. For user-facing public changes, verify the canonical public repository, not
+    only the local checkout or installed cache. Check the public GitHub page and
+    raw public artifacts such as `README.md` and `.codex-plugin/plugin.json`
+    after push/release when network access is available.
+11. Check visible assets for stale references. If the public page, README,
+    manifest, or package points at an old icon, banner, pet, screenshot, or
+    renamed asset, the public update is not done.
 
 ## Runtime Gates
 
@@ -89,6 +96,13 @@ Public release evidence must include both repository and Codex runtime layers:
 6. Fresh-chat loaded skill path matching the intended installed version.
 7. Smoke test of the public behavior, outside the plugin source repository when
    repository context could distort the result.
+8. Clean install smoke evidence when public install/update instructions changed:
+   use an isolated `CODEX_HOME` or equivalent temporary runtime state and run
+   the README commands exactly as written.
+
+Local marketplace smoke can diagnose package shape, but it is not final public
+release evidence. The final public gate must exercise the public repository or
+public marketplace path that users are told to use.
 
 If a chat preview points at an older or missing cache path, treat the smoke test
 as stale runtime evidence, not product behavior.

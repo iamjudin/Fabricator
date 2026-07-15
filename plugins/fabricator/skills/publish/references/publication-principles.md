@@ -43,6 +43,16 @@ Use these principles for every Fabricator Publish task.
   public update. Do not stop at build, package, or runtime checks if README,
   changelog, release notes, About description, topics, install/update commands,
   or visible assets still describe the old release.
+- User-facing public changes must flow through the canonical public repository.
+  A local checkout, local marketplace, or installed cache can be useful
+  diagnostic evidence, but it is not final public evidence by itself.
+- When network access is available, verify raw public artifacts after push:
+  at minimum the public `README.md` and package `.codex-plugin/plugin.json`.
+  These catch "works locally" releases where the GitHub page or package source
+  still exposes old instructions or metadata.
+- Treat stale visible assets as public-page failures. Icons, banners, pets,
+  screenshots, and renamed media need explicit public checks when they are part
+  of the package or README.
 - Prefer updating GitHub page fields directly when available through trusted
   tooling. If a field requires manual UI work, mark release readiness as
   `Pending user/platform action` rather than silently skipping it.
@@ -54,6 +64,9 @@ Use these principles for every Fabricator Publish task.
   chat loaded skill path as separate layers.
 - Check public repository presentation as a separate layer too. A correct
   installed plugin with a stale public page is not a complete public update.
+- If README install/update commands changed, run a clean install smoke using an
+  isolated `CODEX_HOME` or equivalent temporary runtime state. The smoke should
+  execute the public instructions exactly as written.
 - If reinstalling or upgrading keeps producing an old version, inspect the
   marketplace clone before blaming the plugin cache.
 - A fresh chat that loads an old or missing skill path is stale runtime

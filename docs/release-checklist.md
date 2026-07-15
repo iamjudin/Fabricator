@@ -24,6 +24,10 @@ Use this before tagging a public Fabricator release.
 - Confirm GitHub Release notes match the release and do not describe an older
   public behavior.
 - Confirm install/update commands on the public page are still correct.
+- After push/release, confirm raw public `README.md` and package
+  `.codex-plugin/plugin.json` match the released version and instructions.
+- Confirm public visible asset references are current: icon, logo, banner,
+  pet, screenshots, or renamed media when present.
 
 ## Validation
 
@@ -34,12 +38,15 @@ scripts/validate.sh
 git diff --check
 ```
 
-## Local Smoke
+## Local Diagnostic Smoke
 
 ```bash
 codex plugin marketplace add /Users/iamjudin/Desktop/Plugins/Fabricator
 codex plugin add fabricator@fabricator
 ```
+
+This checks local package shape only. Do not treat local marketplace smoke as
+final public release evidence.
 
 Start a new Codex chat and confirm:
 
@@ -59,6 +66,10 @@ codex plugin marketplace add iamjudin/Fabricator
 Then install or upgrade Fabricator in Plugins, start a new chat, and confirm the
 fresh-chat loaded skill path matches the released version.
 
+If README install/update commands changed, also run a clean install smoke with
+an isolated `CODEX_HOME` or equivalent temporary runtime state and execute the
+public README commands exactly as written.
+
 ## Public Page Done
 
 A public update is not done until the GitHub repository page is current:
@@ -69,3 +80,5 @@ A public update is not done until the GitHub repository page is current:
 - About description and topics are current or explicitly marked pending
   user/platform action.
 - Install/update instructions are current.
+- Raw public README and package plugin manifest are current.
+- Public visible asset references are current.

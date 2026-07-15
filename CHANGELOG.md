@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.3] - 2026-07-15
+
+- Strengthened Publish gates from Tarsy field evidence: public releases now
+  require raw public README/package checks, clean install smoke when public
+  commands change, and stale visible-asset checks.
+- Clarified that local marketplace smoke is diagnostic only and cannot be the
+  final public release gate.
+
 ## [0.2.2] - 2026-07-15
 
 - Shortened the manifest default prompt so Codex runtime accepts it instead of
