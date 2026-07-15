@@ -22,6 +22,7 @@ Use Publish for public release preparation:
 4. Release validation and CI.
 5. Public install/update instructions.
 6. Runtime evidence from marketplace, installed cache, and fresh-chat smoke.
+7. Public GitHub page refresh for every public update.
 
 Do not use Publish for ordinary local plugin creation, fixes, or pre-public
 runtime update work. That is Craft unless the user clearly chooses public
@@ -68,6 +69,12 @@ Verify public repository presentation:
 6. CI runs the same meaningful validation as local release checks.
 7. GitHub About/description/topics are listed as manual release evidence when
    they cannot be verified locally.
+8. For every public update, refresh the public GitHub page before release:
+   README-visible content, About description, topics, release notes, changelog,
+   installation/update instructions, and any visible asset references affected
+   by the change.
+9. Do not treat build/runtime checks as sufficient release evidence if the
+   public repository page still describes the old behavior.
 
 ## Runtime Gates
 
@@ -75,10 +82,12 @@ Public release evidence must include both repository and Codex runtime layers:
 
 1. Clean Git status and pushed branch/tag evidence when publishing remotely.
 2. Local validation and official plugin validation.
-3. Marketplace add/upgrade evidence.
-4. Installed plugin version and cache path.
-5. Fresh-chat loaded skill path matching the intended installed version.
-6. Smoke test of the public behavior, outside the plugin source repository when
+3. Public GitHub page evidence: README/changelog/release notes plus About
+   description/topics checked or explicitly marked pending user/platform action.
+4. Marketplace add/upgrade evidence.
+5. Installed plugin version and cache path.
+6. Fresh-chat loaded skill path matching the intended installed version.
+7. Smoke test of the public behavior, outside the plugin source repository when
    repository context could distort the result.
 
 If a chat preview points at an older or missing cache path, treat the smoke test

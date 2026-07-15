@@ -22,6 +22,9 @@ if your hobby is debugging ghosts.
   judging test results.
 - Prepare public releases with README, license, changelog, CI, marketplace,
   runtime, and fresh-chat evidence.
+- Keep the public GitHub page current during every public update, including
+  README-visible behavior, changelog, release notes, About/topics, and
+  install/update instructions.
 
 ## Install
 

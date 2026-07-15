@@ -39,12 +39,21 @@ Use these principles for every Fabricator Publish task.
 - GitHub About description, topics, website/social links, branch protection,
   and account security may require manual verification. Record them as pending
   user/platform evidence when the agent cannot inspect or change them.
+- Updating the public GitHub page is part of the definition of done for every
+  public update. Do not stop at build, package, or runtime checks if README,
+  changelog, release notes, About description, topics, install/update commands,
+  or visible assets still describe the old release.
+- Prefer updating GitHub page fields directly when available through trusted
+  tooling. If a field requires manual UI work, mark release readiness as
+  `Pending user/platform action` rather than silently skipping it.
 
 ## Runtime Evidence
 
 - Publishing source code does not prove users run that version.
 - Check repository state, marketplace clone, installed plugin cache, and fresh
   chat loaded skill path as separate layers.
+- Check public repository presentation as a separate layer too. A correct
+  installed plugin with a stale public page is not a complete public update.
 - If reinstalling or upgrading keeps producing an old version, inspect the
   marketplace clone before blaming the plugin cache.
 - A fresh chat that loads an old or missing skill path is stale runtime

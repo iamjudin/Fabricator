@@ -93,6 +93,8 @@ def validate_skills() -> None:
     publish = (PLUGIN / "skills" / "publish" / "SKILL.md").read_text(encoding="utf-8")
     if "public release" not in publish or "fresh-chat" not in publish:
         fail("Publish skill must mention public release and fresh-chat evidence")
+    if "public GitHub page" not in publish:
+        fail("Publish skill must require public GitHub page refresh")
     if "clarify" not in craft.lower() or "Publish" not in craft:
         fail("Craft skill must route ambiguous publication intent")
     ok("Craft and Publish skills are present")
@@ -107,6 +109,9 @@ def validate_public_docs() -> None:
             fail(f"README is missing {required}")
     if "codex plugin marketplace add iamjudin/Fabricator" not in readme:
         fail("README install command must mention iamjudin/Fabricator")
+    checklist = (ROOT / "docs" / "release-checklist.md").read_text(encoding="utf-8")
+    if "Public Page Done" not in checklist:
+        fail("release checklist must include Public Page Done")
     ok("public docs are present")
 
 

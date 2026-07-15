@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.1] - 2026-07-15
+
+- Made public GitHub page refresh a required Publish definition-of-done gate.
+- Required Publish to verify README-visible content, changelog, release notes,
+  GitHub About/topics, and install/update instructions for every public update.
+
 ## [0.2.0] - 2026-07-15
 
 - Added Fabricator: Publish for public Codex plugin release preparation.
