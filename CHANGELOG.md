@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.7] - 2026-07-15
+
+- Updated README-visible public positioning so the GitHub page reflects the new
+  Watch monitoring workflow.
+
 ## [0.2.6] - 2026-07-15
 
 - Added Fabricator: Watch for post-public plugin monitoring and backlog intake.

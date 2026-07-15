@@ -1,6 +1,6 @@
 # Fabricator
 
-Fabricator helps create, maintain, and publish reliable Codex plugins.
+Fabricator helps create, maintain, publish, and observe reliable Codex plugins.
 
 It has three workflows:
 
