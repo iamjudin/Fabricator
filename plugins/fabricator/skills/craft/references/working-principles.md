@@ -95,6 +95,12 @@ only a chat convention with the user.
   local marketplace/source, installed-version/path verification, restart Codex
   when needed, then a fresh test chat. Prefer self-service commands first; leave
   a manual UI instruction only when no verified agent path remains.
+- A UI-inserted skill chip may be serialized as a markdown link to a specific
+  versioned cache path. If that linked `SKILL.md` path no longer exists after a
+  plugin upgrade, treat the link as stale runtime evidence, not proof that the
+  skill is unavailable. Resolve the latest installed plugin via `codex plugin
+  list`, current cache directories, or the marketplace clone, and load the same
+  skill from the current installed version before continuing.
 - Treat tool-route blocks as first-class production signals. If a workflow
   promises a route through Figma, browser, GitHub, or another connector, and a
   hook/guard/state machine blocks that route, inspect the blocking condition

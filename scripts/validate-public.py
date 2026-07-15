@@ -103,6 +103,8 @@ def validate_skills() -> None:
         fail("Publish skill must require public GitHub page refresh")
     if "Post-Public Monitoring" not in publish or "Fabricator: Watch" not in publish:
         fail("Publish skill must require post-public Watch setup")
+    if "stale linked skill path" not in craft and "UI skill chip" not in craft:
+        fail("Craft skill must recover from stale linked skill cache paths")
     if "passive monitoring" not in watch or "backlog" not in watch:
         fail("Watch skill must cover passive monitoring and backlog intake")
     if "clarify" not in craft.lower() or "Publish" not in craft:

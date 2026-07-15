@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.9] - 2026-07-15
+
+- Added Craft recovery for stale UI skill-chip links that point to removed
+  versioned installed-cache `SKILL.md` paths after Fabricator upgrades.
+- Craft now resolves the current installed plugin cache before treating a
+  missing linked skill path as unavailable.
+
 ## [0.2.8] - 2026-07-15
 
 - Removed the public README Development block so the main GitHub page stays

@@ -67,6 +67,12 @@ substantive changes.
    installed cache path/version, and the test chat's loaded skill path when a
    thread or preview is available. If the installed/runtime version is missing,
    older, or ambiguous, stop the test analysis and report the mismatch first.
+   If a UI skill chip or copied markdown link points at a removed versioned
+   installed-cache `SKILL.md`, do not conclude that the skill is unavailable.
+   Resolve the current installed plugin from `codex plugin list`, the active
+   plugin cache, or the marketplace clone, then load the same skill from the
+   current installed version and report the stale linked skill path as runtime
+   evidence.
 6. Treat blocked tool or route access as product evidence. If a downstream tool
    such as Figma is blocked by a plugin hook, guard, workflow gate, stale state,
    or missing artifact marker, determine whether the block is an intended
