@@ -23,6 +23,7 @@ Use Publish for public release preparation:
 5. Public install/update instructions.
 6. Runtime evidence from marketplace, installed cache, and fresh-chat smoke.
 7. Public GitHub page refresh for every public update.
+8. Post-public monitoring setup for released plugins.
 
 Do not use Publish for ordinary local plugin creation, fixes, or pre-public
 runtime update work. That is Craft unless the user clearly chooses public
@@ -113,6 +114,19 @@ public marketplace path that users are told to use.
 
 If a chat preview points at an older or missing cache path, treat the smoke test
 as stale runtime evidence, not product behavior.
+
+## Post-Public Monitoring
+
+After release readiness is `Ready` and runtime smoke has passed, offer Watch
+setup for the released plugin project. Ask whether the user wants passive
+monitoring, how often it should run, which projects or chat patterns count as
+plugin usage, and whether production-process findings should also report to a
+parent Fabricator project when one exists.
+
+Do not enable monitoring silently. If the user declines, record Watch as
+disabled/skipped for the release. If the user accepts and automation tools are
+available, configure or propose the recurring monitor through Fabricator: Watch
+or the platform automation mechanism.
 
 ## Output
 

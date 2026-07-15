@@ -87,7 +87,7 @@ def validate_manifest() -> None:
 
 
 def validate_skills() -> None:
-    for name in ("craft", "publish"):
+    for name in ("craft", "publish", "watch"):
         skill_path = PLUGIN / "skills" / name / "SKILL.md"
         require_file(skill_path)
         text = skill_path.read_text(encoding="utf-8")
@@ -96,20 +96,25 @@ def validate_skills() -> None:
         require_file(PLUGIN / "skills" / name / "agents" / "openai.yaml")
     craft = (PLUGIN / "skills" / "craft" / "SKILL.md").read_text(encoding="utf-8")
     publish = (PLUGIN / "skills" / "publish" / "SKILL.md").read_text(encoding="utf-8")
+    watch = (PLUGIN / "skills" / "watch" / "SKILL.md").read_text(encoding="utf-8")
     if "public release" not in publish or "fresh-chat" not in publish:
         fail("Publish skill must mention public release and fresh-chat evidence")
     if "public GitHub page" not in publish:
         fail("Publish skill must require public GitHub page refresh")
+    if "Post-Public Monitoring" not in publish or "Fabricator: Watch" not in publish:
+        fail("Publish skill must require post-public Watch setup")
+    if "passive monitoring" not in watch or "backlog" not in watch:
+        fail("Watch skill must cover passive monitoring and backlog intake")
     if "clarify" not in craft.lower() or "Publish" not in craft:
         fail("Craft skill must route ambiguous publication intent")
-    ok("Craft and Publish skills are present")
+    ok("Craft, Publish, and Watch skills are present")
 
 
 def validate_public_docs() -> None:
     for rel in ("README.md", "CHANGELOG.md", "CONTRIBUTING.md", "LICENSE", "docs/release-checklist.md"):
         require_file(ROOT / rel)
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    for required in ("Fabricator", "Craft", "Publish", "Install", "Update", "License"):
+    for required in ("Fabricator", "Craft", "Publish", "Watch", "Install", "Update", "License"):
         if required not in readme:
             fail(f"README is missing {required}")
     if "codex plugin marketplace add iamjudin/Fabricator" not in readme:
@@ -117,7 +122,7 @@ def validate_public_docs() -> None:
     checklist = (ROOT / "docs" / "release-checklist.md").read_text(encoding="utf-8")
     if "Public Page Done" not in checklist:
         fail("release checklist must include Public Page Done")
-    for required in ("raw public", "isolated `CODEX_HOME`", "local marketplace smoke", "propagation"):
+    for required in ("raw public", "isolated `CODEX_HOME`", "local marketplace smoke", "propagation", "Post-Public Watch"):
         if required not in checklist:
             fail(f"release checklist must mention {required}")
     ok("public docs are present")
@@ -152,6 +157,8 @@ def validate_no_russian_public_names() -> None:
         PLUGIN / ".codex-plugin" / "plugin.json",
         PLUGIN / "skills" / "publish" / "SKILL.md",
         PLUGIN / "skills" / "publish" / "references" / "publication-principles.md",
+        PLUGIN / "skills" / "watch" / "SKILL.md",
+        PLUGIN / "skills" / "watch" / "references" / "watch-principles.md",
     ]
     forbidden = ("Фабрикатор", "Крафт", "Паблишь", "Паблик")
     for path in public_files:

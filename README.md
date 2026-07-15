@@ -2,11 +2,13 @@
 
 Fabricator helps create, maintain, and publish reliable Codex plugins.
 
-It has two workflows:
+It has three workflows:
 
 - **Craft** creates and maintains local or pre-public Codex plugins.
 - **Publish** prepares public plugin releases with package, repository, and
   runtime evidence.
+- **Watch** sets up and runs post-public monitoring so released plugins can
+  collect usage signals into their own backlog.
 
 Fabricator is strict about runtime state because Codex plugins can look updated
 in source while an old cache or old chat keeps running something else. Charming,
@@ -28,6 +30,8 @@ if your hobby is debugging ghosts.
 - Treat local marketplace smoke as diagnostic for public releases; final public
   evidence checks the public repository, raw README/package metadata, clean
   install instructions when they change, and visible asset references.
+- Ask after publication whether a released plugin project should be monitored,
+  how often, and where usage findings should be routed.
 
 ## Install
 
@@ -50,6 +54,12 @@ Use Publish for public release preparation:
 
 ```text
 $fabricator:publish
+```
+
+Use Watch for post-public monitoring setup or backlog intake:
+
+```text
+$fabricator:watch
 ```
 
 If you say that you are publishing without making public/local intent clear,

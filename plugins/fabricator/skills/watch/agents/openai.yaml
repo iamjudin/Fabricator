@@ -1,0 +1,6 @@
+interface:
+  display_name: "Fabricator: Watch"
+  short_description: "Monitor released Codex plugins and collect backlog signals."
+  default_prompt: "Use Fabricator: Watch to monitor released plugin usage and update its backlog."
+policy:
+  allow_implicit_invocation: false

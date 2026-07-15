@@ -86,3 +86,14 @@ A public update is not done until the GitHub repository page is current:
 - Raw public README and package plugin manifest are current.
 - Any raw branch propagation lag is explained with API/exact-commit evidence.
 - Public visible asset references are current.
+
+## Post-Public Watch
+
+- After release readiness and runtime smoke pass, ask whether passive monitoring
+  should be enabled for this plugin project.
+- Ask for monitoring cadence: daily, weekly, or custom.
+- Ask which projects or chat patterns count as plugin usage.
+- Ask whether Fabricator production-process findings should report to a parent
+  Fabricator backlog when a parent project exists.
+- If enabled, configure or propose the recurring monitor with the platform
+  automation mechanism. If declined, record Watch as disabled/skipped.

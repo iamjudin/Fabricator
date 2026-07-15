@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.2.6] - 2026-07-15
+
+- Added Fabricator: Watch for post-public plugin monitoring and backlog intake.
+- Made Publish ask after release whether passive monitoring should be enabled,
+  how often it should run, and where usage and production-process findings
+  should be routed.
+- Added a Watch contract for child plugins so released plugins can monitor
+  their own usage without depending on a Fabricator project.
+
 ## [0.2.5] - 2026-07-15
 
 - Added a Publish diagnostic for raw branch URL propagation lag: compare remote

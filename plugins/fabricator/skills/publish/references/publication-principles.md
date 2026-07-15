@@ -76,6 +76,20 @@ Use these principles for every Fabricator Publish task.
 - A fresh chat that loads an old or missing skill path is stale runtime
   evidence and does not pass smoke testing.
 
+## Post-Public Monitoring
+
+- Publication is the point where passive monitoring becomes useful. During
+  active debugging, the user can still point Craft at a specific test chat.
+- After Publish completes, ask whether to monitor the released plugin project
+  and how often. Do not assume monitoring is desired.
+- Monitoring belongs to the plugin that owns the behavior. Fabricator receives
+  production-process findings only when a parent Fabricator project exists; the
+  child plugin receives its own usage findings.
+- A released child plugin should be able to monitor usage without Fabricator
+  being connected in the usage chat or available as a project.
+- A skill cannot wake itself. Use Codex automations, project rules, or another
+  explicit schedule for passive monitoring.
+
 ## Release Result
 
 - Release readiness must be explicit: `Ready`, `Blocked`, or

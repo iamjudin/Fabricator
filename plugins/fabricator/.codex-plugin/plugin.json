@@ -1,7 +1,7 @@
 {
   "name": "fabricator",
-  "version": "0.2.5+codex.20260715173119",
-  "description": "Fabricator helps create, maintain, and publish reliable Codex plugins.",
+  "version": "0.2.6+codex.20260715192400",
+  "description": "Fabricator helps create, maintain, publish, and observe reliable Codex plugins.",
   "author": {
     "name": "iamjudin"
   },
@@ -19,18 +19,19 @@
   "interface": {
     "displayName": "Fabricator",
     "shortDescription": "Create, maintain, and publish Codex plugins.",
-    "longDescription": "Fabricator helps turn plugin ideas and existing Codex plugins into clear, testable workflows. Craft handles local creation and maintenance. Publish handles public release preparation, package evidence, and runtime publication checks.",
+    "longDescription": "Fabricator helps turn plugin ideas and existing Codex plugins into clear, testable workflows. Craft handles local creation and maintenance. Publish handles public release preparation, package evidence, and runtime publication checks. Watch handles post-public usage monitoring and backlog intake.",
     "developerName": "iamjudin",
     "category": "Productivity",
     "capabilities": [
       "Codex plugin creation",
       "Plugin workflow design",
       "Public plugin publishing",
+      "Post-public plugin monitoring",
       "Official documentation checks",
       "Runtime and hook isolation",
       "Validation and Git checkpoints"
     ],
-    "defaultPrompt": "Use Fabricator for Codex plugin creation, maintenance, local runtime updates, and public publishing.",
+    "defaultPrompt": "Use Fabricator for Codex plugin creation, publishing, monitoring, and runtime updates.",
     "brandColor": "#000000",
     "composerIcon": "./assets/icon_fab.png",
     "logo": "./assets/icon_fab.png"
