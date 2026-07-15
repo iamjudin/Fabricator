@@ -25,6 +25,9 @@ if your hobby is debugging ghosts.
 - Keep the public GitHub page current during every public update, including
   README-visible behavior, changelog, release notes, About/topics, and
   install/update instructions.
+- Treat local marketplace smoke as diagnostic for public releases; final public
+  evidence checks the public repository, raw README/package metadata, clean
+  install instructions when they change, and visible asset references.
 
 ## Install
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.4] - 2026-07-15
+
+- Updated README-visible public release behavior so the public GitHub page
+  reflects the new raw public artifact, clean install, and local-diagnostic
+  smoke gates added in 0.2.3.
+
 ## [0.2.3] - 2026-07-15
 
 - Strengthened Publish gates from Tarsy field evidence: public releases now
