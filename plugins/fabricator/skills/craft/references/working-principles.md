@@ -2,6 +2,10 @@
 
 Use these principles for every Fabricator Craft task.
 
+Use English names in files, paths, manifests, docs, README, release notes, and
+marketplace metadata: `Fabricator`, `Craft`, and `Publish`. Russian names are
+only a chat convention with the user.
+
 ## Method integrity
 
 - Maintain one canonical core for the current plugin. Its active skills, tests,
@@ -58,6 +62,10 @@ Use these principles for every Fabricator Craft task.
   task to source only. Continue through cachebuster/reinstall/runtime preflight
   yourself; if the only remaining step is an unavoidable Codex restart or fresh
   chat, name the exact boundary and treat final smoke as pending that boundary.
+- If the user says they are publishing, releasing, making the plugin public, or
+  similar, determine the intended mode before changing workflow. Public release
+  belongs to Publish. Local/pre-public update and testing remain Craft by
+  default. If the wording is ambiguous, ask one concise clarification.
 - Prefer doing uninstall/install yourself with trusted Codex plugin commands
   such as `codex plugin remove <plugin@marketplace>` and
   `codex plugin add <plugin@marketplace>` when current evidence shows they work.

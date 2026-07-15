@@ -1,24 +1,38 @@
 {
   "name": "fabricator",
-  "version": "0.1.5+codex.20260709192251",
-  "description": "Fabricator helps create and maintain reliable Codex plugins.",
+  "version": "0.2.0+codex.20260715195607",
+  "description": "Fabricator helps create, maintain, and publish reliable Codex plugins.",
   "author": {
     "name": "iamjudin"
   },
+  "homepage": "https://github.com/iamjudin/Fabricator",
+  "repository": "https://github.com/iamjudin/Fabricator",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "keywords": [
+    "codex",
+    "plugin",
+    "publishing",
+    "workflow",
+    "fabricator"
+  ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Фабрикатор / Fabricator",
-    "shortDescription": "Create and maintain reliable Codex plugins.",
-    "longDescription": "Fabricator helps turn a plugin idea or an existing plugin into a clear, testable Codex workflow. Craft handles the creation and maintenance loop; publishing will arrive as a separate skill.",
+    "displayName": "Fabricator",
+    "shortDescription": "Create, maintain, and publish Codex plugins.",
+    "longDescription": "Fabricator helps turn plugin ideas and existing Codex plugins into clear, testable workflows. Craft handles local creation and maintenance. Publish handles public release preparation, package evidence, and runtime publication checks.",
     "developerName": "iamjudin",
     "category": "Productivity",
     "capabilities": [
       "Codex plugin creation",
       "Plugin workflow design",
+      "Public plugin publishing",
       "Official documentation checks",
       "Runtime and hook isolation",
       "Validation and Git checkpoints"
     ],
-    "defaultPrompt": "Use Fabricator: Craft to create or improve a Codex plugin in this project. Distinguish accumulation mode from implementation mode: while the user is collecting or clarifying findings, record and group them; once the user approves implementation, the scope includes source edits, validation, commit, scoped uninstall/hard-clean, reinstall from the intended local marketplace/source, installed cache/version verification, and restart/fresh-chat boundary unless explicitly narrowed. Never finish a pre-public plugin fix as source-only when the expected surface is the installed plugin; continue through runtime reinstall/preflight yourself, and mark only the unavoidable restart/fresh-chat smoke as pending. Prefer doing uninstall/install yourself with trusted Codex plugin commands before asking for manual UI work. When the user says they are testing a plugin or names a test chat/project, first verify that the installed runtime build matches the source version and that the test chat loaded that build; if not, stop and report the mismatch before analyzing results. Treat blocked promised routes such as Figma as production signals: inspect guard/state/cache causes, fix false positives with regression coverage, and do not call the workflow complete while the route cannot be used."
+    "defaultPrompt": "Use Fabricator to create, maintain, or publish Codex plugins. Route local plugin creation, fixes, maintenance, runtime reinstall, and pre-public testing to Fabricator: Craft by default. When the user says they are publishing, releasing, making public, or similar, first determine whether they mean public publication or continuing local/pre-public work. If they explicitly mean public release, use Fabricator: Publish. If the intent is ambiguous, ask one concise clarification before switching modes. Use English names in files, paths, manifests, docs, release notes, and marketplace metadata: Fabricator, Craft, Publish. Russian names may be used only in chat with the user. Craft distinguishes accumulation mode from implementation mode and completes the local runtime update path unless explicitly narrowed. Publish verifies public package layout, README, license, changelog, GitHub metadata readiness, validation, marketplace/runtime evidence, and fresh-chat smoke before calling a release ready.",
+    "brandColor": "#000000",
+    "composerIcon": "./assets/icon_fab.png",
+    "logo": "./assets/icon_fab.png"
   }
 }

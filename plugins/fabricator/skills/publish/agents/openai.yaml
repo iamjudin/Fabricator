@@ -1,0 +1,6 @@
+interface:
+  display_name: "Fabricator: Publish"
+  short_description: "Prepare and verify public Codex plugin releases."
+  default_prompt: "Use Fabricator: Publish to prepare and verify this Codex plugin for public release."
+policy:
+  allow_implicit_invocation: false

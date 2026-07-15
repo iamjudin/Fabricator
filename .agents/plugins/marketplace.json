@@ -1,7 +1,7 @@
 {
-  "name": "personal",
+  "name": "fabricator",
   "interface": {
-    "displayName": "Personal"
+    "displayName": "Fabricator"
   },
   "plugins": [
     {

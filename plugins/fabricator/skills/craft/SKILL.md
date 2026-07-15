@@ -10,6 +10,12 @@ active engineering partner: inspect the project, make the changes, validate
 them, and record durable learning without exposing implementation ceremony to
 the plugin's eventual end user.
 
+Craft is the default Fabricator workflow for local and pre-public work. If the
+user says "publish", "release", "make it public", or similar without clearly
+choosing public publication, clarify whether they mean public release or
+continuing local/pre-public plugin work. Use Publish only after the user clearly
+chooses public publication.
+
 ## Start in the right scope
 
 1. Read the project guidance, current backlog, Git state, and relevant files.
@@ -130,7 +136,7 @@ substantive changes.
   as: `Подхвати последний вывод: pre-public plugin dev workflow = hard-clean +
   UI install, CLI reinstall только диагностика. Запиши в Fabricator.`
 - When additional Fabricator skills are installed later, let their precise
-  descriptions route tasks to the correct skill. The future Publish skill is
-  for public publication as a dedicated user-facing workflow: marketplace
-  presentation, public release packaging, release evidence, and final
-  publishing steps like the Bookworm public release work.
+  descriptions route tasks to the correct skill. Publish is for public
+  publication as a dedicated user-facing workflow: marketplace presentation,
+  public release packaging, release evidence, and final publishing steps like
+  the Bookworm and Tarsy public release work.
