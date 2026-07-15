@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.5] - 2026-07-15
+
+- Added a Publish diagnostic for raw branch URL propagation lag: compare remote
+  SHA, GitHub API contents, and exact-commit raw URLs before reporting release
+  evidence.
+
 ## [0.2.4] - 2026-07-15
 
 - Updated README-visible public release behavior so the public GitHub page

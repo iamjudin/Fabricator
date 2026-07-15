@@ -82,6 +82,10 @@ Verify public repository presentation:
 11. Check visible assets for stale references. If the public page, README,
     manifest, or package points at an old icon, banner, pet, screenshot, or
     renamed asset, the public update is not done.
+12. If a raw branch URL lags behind the pushed commit, compare against the
+    remote SHA, GitHub API contents, and exact-commit raw URL. Treat confirmed
+    branch raw lag as propagation evidence to report, not as permission to skip
+    public repository verification.
 
 ## Runtime Gates
 
@@ -99,6 +103,9 @@ Public release evidence must include both repository and Codex runtime layers:
 8. Clean install smoke evidence when public install/update instructions changed:
    use an isolated `CODEX_HOME` or equivalent temporary runtime state and run
    the README commands exactly as written.
+9. If raw public branch artifacts are stale while the marketplace clone and
+   exact commit are current, record that as a public artifact propagation
+   signal and verify the installed marketplace source separately.
 
 Local marketplace smoke can diagnose package shape, but it is not final public
 release evidence. The final public gate must exercise the public repository or

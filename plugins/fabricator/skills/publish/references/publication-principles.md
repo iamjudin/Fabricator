@@ -50,6 +50,10 @@ Use these principles for every Fabricator Publish task.
   at minimum the public `README.md` and package `.codex-plugin/plugin.json`.
   These catch "works locally" releases where the GitHub page or package source
   still exposes old instructions or metadata.
+- Raw branch URLs can lag behind the pushed commit. If that happens, compare the
+  remote SHA, GitHub API contents, and exact-commit raw URL. Report the
+  propagation signal and keep checking the public marketplace/runtime source;
+  do not silently ignore the mismatch.
 - Treat stale visible assets as public-page failures. Icons, banners, pets,
   screenshots, and renamed media need explicit public checks when they are part
   of the package or README.

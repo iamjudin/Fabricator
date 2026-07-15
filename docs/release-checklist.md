@@ -26,6 +26,9 @@ Use this before tagging a public Fabricator release.
 - Confirm install/update commands on the public page are still correct.
 - After push/release, confirm raw public `README.md` and package
   `.codex-plugin/plugin.json` match the released version and instructions.
+- If raw branch URLs lag, compare remote SHA, GitHub API contents, and
+  exact-commit raw URLs; report propagation evidence rather than skipping the
+  public artifact check.
 - Confirm public visible asset references are current: icon, logo, banner,
   pet, screenshots, or renamed media when present.
 
@@ -81,4 +84,5 @@ A public update is not done until the GitHub repository page is current:
   user/platform action.
 - Install/update instructions are current.
 - Raw public README and package plugin manifest are current.
+- Any raw branch propagation lag is explained with API/exact-commit evidence.
 - Public visible asset references are current.
