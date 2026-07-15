@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2] - 2026-07-15
+
+- Shortened the manifest default prompt so Codex runtime accepts it instead of
+  ignoring it during fresh-context startup.
+- Added public validation for manifest default prompt length and icon paths so
+  runtime loader warnings fail before release.
+
 ## [0.2.1] - 2026-07-15
 
 - Made public GitHub page refresh a required Publish definition-of-done gate.

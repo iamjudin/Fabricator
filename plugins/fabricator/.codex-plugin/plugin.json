@@ -1,6 +1,6 @@
 {
   "name": "fabricator",
-  "version": "0.2.1+codex.20260715200745",
+  "version": "0.2.2+codex.20260715172147",
   "description": "Fabricator helps create, maintain, and publish reliable Codex plugins.",
   "author": {
     "name": "iamjudin"
@@ -30,7 +30,7 @@
       "Runtime and hook isolation",
       "Validation and Git checkpoints"
     ],
-    "defaultPrompt": "Use Fabricator to create, maintain, or publish Codex plugins. Route local plugin creation, fixes, maintenance, runtime reinstall, and pre-public testing to Fabricator: Craft by default. When the user says they are publishing, releasing, making public, or similar, first determine whether they mean public publication or continuing local/pre-public work. If they explicitly mean public release, use Fabricator: Publish. If the intent is ambiguous, ask one concise clarification before switching modes. Use English names in files, paths, manifests, docs, release notes, and marketplace metadata: Fabricator, Craft, Publish. Russian names may be used only in chat with the user. Craft distinguishes accumulation mode from implementation mode and completes the local runtime update path unless explicitly narrowed. Publish verifies public package layout, README, license, changelog, GitHub page metadata/readiness, validation, marketplace/runtime evidence, and fresh-chat smoke before calling a release ready. For every public update, Publish must also update and verify the public GitHub page: README-visible content, About description, topics, release notes, changelog, and install/update instructions as applicable.",
+    "defaultPrompt": "Use Fabricator for Codex plugin creation, maintenance, local runtime updates, and public publishing.",
     "brandColor": "#000000",
     "composerIcon": "./assets/icon_fab.png",
     "logo": "./assets/icon_fab.png"

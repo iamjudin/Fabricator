@@ -73,10 +73,15 @@ def validate_manifest() -> None:
             fail(f"manifest interface.{key} is required")
     if interface.get("displayName") != "Fabricator":
         fail("displayName must be English: Fabricator")
+    default_prompt = interface.get("defaultPrompt", "")
+    if default_prompt and len(default_prompt) > 128:
+        fail("manifest interface.defaultPrompt must be at most 128 characters")
     for icon_key in ("composerIcon", "logo"):
         icon_path = interface.get(icon_key)
         if not icon_path:
             fail(f"manifest interface.{icon_key} is required")
+        if ".." in Path(icon_path).parts:
+            fail(f"manifest interface.{icon_key} must not contain '..'")
         require_file(PLUGIN / icon_path)
     ok(f"plugin manifest is valid ({version})")
 
