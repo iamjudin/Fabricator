@@ -77,6 +77,31 @@ Use these principles for every Fabricator Publish task.
 - A fresh chat that loads an old or missing skill path is stale runtime
   evidence and does not pass smoke testing.
 
+## Downstream Propagation
+
+When a Fabricator release changes a shared plugin-production standard, the
+release is not complete until downstream impact is checked. Shared standards
+include Craft runtime completion rules, Publish release gates, Watch contracts,
+monitoring cadence or archive behavior, stale-runtime detection, public page
+requirements, and other rules that child plugin projects may have copied into
+their own docs, backlog, automations, or release checklists.
+
+Classify the release:
+
+- Fabricator-only: no downstream propagation required beyond release notes.
+- Shared standard: find known child plugin projects and propagate the new rule
+  through the smallest durable artifact each project already uses.
+
+Known child projects should be discovered from local plugin workspaces,
+`.fabricator` metadata, Watch contracts, project backlogs, release notes, and
+recent thread evidence. Do not require a child project to have Fabricator
+installed in its usage chat.
+
+Propagation can be a source change, checklist update, Watch contract update,
+or backlog item. If the child project is unavailable or outside the current
+write scope, record a pending propagation item with the project name, affected
+rule, and next action instead of silently skipping it.
+
 ## Post-Public Monitoring
 
 - Publication is the point where passive monitoring becomes useful. During

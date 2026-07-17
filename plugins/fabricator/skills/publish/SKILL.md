@@ -23,7 +23,9 @@ Use Publish for public release preparation:
 5. Public install/update instructions.
 6. Runtime evidence from marketplace, installed cache, and fresh-chat smoke.
 7. Public GitHub page refresh for every public update.
-8. Post-public monitoring setup for released plugins.
+8. Downstream impact propagation when Fabricator changes a shared plugin
+   production standard.
+9. Post-public monitoring setup for released plugins.
 
 Do not use Publish for ordinary local plugin creation, fixes, or pre-public
 runtime update work. That is Craft unless the user clearly chooses public
@@ -88,6 +90,28 @@ Verify public repository presentation:
     remote SHA, GitHub API contents, and exact-commit raw URL. Treat confirmed
     branch raw lag as propagation evidence to report, not as permission to skip
     public repository verification.
+
+## Downstream Impact
+
+Before declaring a Fabricator release ready, classify whether the change affects
+only Fabricator itself or changes a shared Craft, Publish, Watch, release, or
+runtime standard that child plugin projects depend on.
+
+If the release changes a shared standard:
+
+1. Find known Fabricator-made or Fabricator-maintained plugin projects from the
+   local plugin workspace, project metadata, release notes, Watch contracts, and
+   recent field evidence.
+2. Identify which projects need propagation: backlog entry, checklist update,
+   Watch contract update, release note, or direct source change.
+3. Apply the smallest safe update when the project is available and in scope.
+   If a project is outside the writable scope or should not be changed during
+   this release, record the exact pending propagation item and owner.
+4. Include downstream propagation evidence in the release result.
+
+Do not rewrite every child plugin for every Fabricator release. Propagate only
+standards that the child projects must know to keep their existing workflows
+honest.
 
 ## Runtime Gates
 

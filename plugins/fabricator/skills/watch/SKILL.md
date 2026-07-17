@@ -79,14 +79,19 @@ specific interval, but still state the chosen cadence.
 For each scheduled run:
 
 1. Identify relevant recent chats using the configured thread queries.
-2. Read enough thread context to classify signals, not entire conversations by
+2. Check previous automation runs for stale `inProgress` state before
+   interpreting current monitor health. Report stale runs separately from
+   active work, with start time and project target when available.
+3. Read enough thread context to classify signals, not entire conversations by
    default.
-3. Separate Fabricator production-process signals from child-plugin usage
+4. Separate Fabricator production-process signals from child-plugin usage
    signals.
-4. Deduplicate against the existing backlog.
-5. Add concise backlog items with evidence: date, source chat, symptom,
+5. Deduplicate against the existing backlog.
+6. Add concise backlog items with evidence: date, source chat, symptom,
    affected workflow, and suggested next action.
-6. Report a digest to the native project thread when configured.
+7. Report a digest to the native project thread when configured.
+8. When running as a scheduled automation and the platform supports it, archive
+   the completed monitor thread after the final digest is produced.
 
 Do not implement fixes during Watch unless the user explicitly switches to
 Craft or Publish. Watch can recommend that a finding is ready for Craft or

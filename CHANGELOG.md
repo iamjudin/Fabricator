@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.10] - 2026-07-17
+
+- Added a downstream-impact gate for Fabricator releases that change shared
+  Craft, Publish, Watch, runtime, or public-page standards.
+- Publish now requires known Fabricator-made or Fabricator-maintained child
+  plugin projects to receive the smallest durable propagation item when a shared
+  standard changes.
+- Watch now treats stale `inProgress` automation runs as monitoring evidence
+  and asks scheduled monitor threads to archive themselves after completion
+  when the platform supports it.
+- Updated public release validation to require the downstream-impact checklist
+  gate.
+
 ## [0.2.9] - 2026-07-15
 
 - Added Craft recovery for stale UI skill-chip links that point to removed

@@ -32,6 +32,21 @@ Use this before tagging a public Fabricator release.
 - Confirm public visible asset references are current: icon, logo, banner,
   pet, screenshots, or renamed media when present.
 
+## Downstream Impact
+
+- Classify the release as Fabricator-only or shared-standard.
+- If the release changes a shared Craft, Publish, Watch, release, runtime, or
+  public-page standard, find known Fabricator-made or Fabricator-maintained
+  child plugin projects from local plugin workspaces, `.fabricator` metadata,
+  Watch contracts, backlogs, release notes, and recent field evidence.
+- For each affected child project, apply the smallest durable propagation:
+  source/checklist update, Watch contract update, release note, or backlog
+  item.
+- If a child project is unavailable or outside the current write scope, record
+  the pending propagation item with project, affected rule, owner, and next
+  action before release readiness is declared.
+- Include downstream propagation evidence in the release result.
+
 ## Validation
 
 Run from the repository root:

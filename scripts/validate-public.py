@@ -126,7 +126,7 @@ def validate_public_docs() -> None:
     checklist = (ROOT / "docs" / "release-checklist.md").read_text(encoding="utf-8")
     if "Public Page Done" not in checklist:
         fail("release checklist must include Public Page Done")
-    for required in ("raw public", "isolated `CODEX_HOME`", "local marketplace smoke", "propagation", "Post-Public Watch"):
+    for required in ("raw public", "isolated `CODEX_HOME`", "local marketplace smoke", "propagation", "Downstream Impact", "Post-Public Watch"):
         if required not in checklist:
             fail(f"release checklist must mention {required}")
     ok("public docs are present")

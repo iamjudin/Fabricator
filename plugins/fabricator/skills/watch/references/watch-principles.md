@@ -38,6 +38,13 @@ Use these principles for every Fabricator Watch task.
   default when they want passive monitoring but do not choose a cadence.
 - Prefer project-local monitoring for child plugins. Parent reporting is
   optional and should exist only when a parent Fabricator project is known.
+- Stale automation runs are monitoring evidence. If a previous scheduled run
+  remains `inProgress` long after the expected runtime, report it separately
+  from current active work and record enough evidence to debug scheduling,
+  archival, or stuck-run behavior.
+- Completed scheduled monitor threads should be archived when the platform
+  provides a thread archive tool and the final digest or memory update has
+  already been produced.
 
 ## Backlog Shape
 

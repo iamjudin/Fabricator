@@ -30,8 +30,12 @@ if your hobby is debugging ghosts.
 - Treat local marketplace smoke as diagnostic for public releases; final public
   evidence checks the public repository, raw README/package metadata, clean
   install instructions when they change, and visible asset references.
+- When Fabricator changes a shared production standard, check downstream child
+  plugin projects and propagate the smallest durable update or backlog item.
 - Ask after publication whether a released plugin project should be monitored,
   how often, and where usage findings should be routed.
+- Watch stale scheduled runs separately from active work and archive completed
+  monitor threads when the platform supports it.
 
 ## Install
 

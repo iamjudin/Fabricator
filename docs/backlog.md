@@ -21,3 +21,9 @@
   - Evidence: July 15, 2026, thread `019f6751-b22c-7b00-b288-21667922f784` (`Проверить Bookworm на стандарты`), two `Daily Bookworm quality review` automations existed with the same visible title but different targets (`/Users/iamjudin/Desktop/Plugins/Bookworm` and `/Users/iamjudin/Desktop/Brain`), which made the active monitor unclear until one duplicate was removed.
   - Owner: Fabricator
   - Suggested next action: Watch setup should require target-specific naming or a recorded target label when creating child-plugin monitors.
+
+- [x] Detect and report stale automation runs
+  - Evidence: July 17, 2026, current Fabricator thread: scheduled task UI showed `Bookworm runtime drift monitor` stuck `In progress` since `2026-07-17 11:16:48 MSK`, and an older `Fabricator daily Watch` run stuck `In progress` since `2026-07-16 20:24:13 MSK`, even though a newer Fabricator Watch run completed.
+  - Owner: Fabricator
+  - Suggested next action: Watch should check previous automation runs for stale `inProgress` state, distinguish stale runs from active work, report the finding, and archive completed monitor threads when possible.
+  - Released in: Fabricator `0.2.10`.

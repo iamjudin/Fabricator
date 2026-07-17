@@ -1,6 +1,6 @@
 {
   "name": "fabricator",
-  "version": "0.2.9+codex.20260715210632",
+  "version": "0.2.10+codex.20260717182000",
   "description": "Fabricator helps create, maintain, publish, and observe reliable Codex plugins.",
   "author": {
     "name": "iamjudin"
