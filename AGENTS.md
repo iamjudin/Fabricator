@@ -12,6 +12,11 @@
   merely because it is more complete; it is better only when the added structure
   pays for itself in less manual work, fewer repeated mistakes, or clearer
   release evidence.
+- For downstream propagation, start with impact classification and the smallest
+  durable update: existing release checklist, backlog item, Watch contract, or
+  direct source fix. Do not create a dedicated downstream registry until the
+  number of active child projects or repeated misses make the registry clearly
+  cheaper than manual discovery.
 
 ## Context Moves
 
