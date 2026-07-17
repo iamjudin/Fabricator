@@ -73,6 +73,12 @@ substantive changes.
    plugin cache, or the marketplace clone, then load the same skill from the
    current installed version and report the stale linked skill path as runtime
    evidence.
+   If an explicit Fabricator invocation cannot be loaded because the serialized
+   path is missing, recover by intent in this order: visible skill label,
+   plugin id and skill id, current installed marketplace clone, current cache
+   manifest, and finally the source project skill file when the project is
+   available. Treat the missing path as a stale runtime signal, not a blocker
+   to applying Fabricator's current instructions.
 6. Treat blocked tool or route access as product evidence. If a downstream tool
    such as Figma is blocked by a plugin hook, guard, workflow gate, stale state,
    or missing artifact marker, determine whether the block is an intended

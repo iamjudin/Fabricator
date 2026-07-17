@@ -105,8 +105,12 @@ def validate_skills() -> None:
         fail("Publish skill must require post-public Watch setup")
     if "stale linked skill path" not in craft and "UI skill chip" not in craft:
         fail("Craft skill must recover from stale linked skill cache paths")
+    if "recover by intent" not in craft and "visible skill label" not in craft:
+        fail("Craft skill must include intent-based recovery for missing skill paths")
     if "passive monitoring" not in watch or "backlog" not in watch:
         fail("Watch skill must cover passive monitoring and backlog intake")
+    if "target-specific" not in watch or "existing automations" not in watch:
+        fail("Watch skill must require target-specific automation names and duplicate checks")
     if "clarify" not in craft.lower() or "Publish" not in craft:
         fail("Craft skill must route ambiguous publication intent")
     ok("Craft, Publish, and Watch skills are present")

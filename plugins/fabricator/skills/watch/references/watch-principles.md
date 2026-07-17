@@ -38,6 +38,13 @@ Use these principles for every Fabricator Watch task.
   default when they want passive monitoring but do not choose a cadence.
 - Prefer project-local monitoring for child plugins. Parent reporting is
   optional and should exist only when a parent Fabricator project is known.
+- Automation names are part of the monitoring contract. They must include a
+  target-specific label so a project monitor, vault monitor, and parent
+  Fabricator monitor cannot appear as identical sidebar or scheduled-task
+  entries. Prefer `<Plugin> <cadence> <purpose> (<target scope>)`.
+- Before creating a recurring monitor, inspect existing automations by visible
+  name, plugin id, and target path. Update the matching automation when one
+  exists instead of creating a duplicate with a similar title.
 - Stale automation runs are monitoring evidence. If a previous scheduled run
   remains `inProgress` long after the expected runtime, report it separately
   from current active work and record enough evidence to debug scheduling,

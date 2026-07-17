@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.2.11] - 2026-07-17
+
+- Craft now has an explicit intent-based recovery path for serialized
+  Fabricator skill links that point at removed versioned installed-cache paths.
+- Watch setup now requires target-specific automation names and checks for
+  existing matching automations before creating a new recurring monitor.
+- Closed the remaining Fabricator backlog items for stale skill-link recovery
+  and ambiguous Watch automation names.
+
 ## [0.2.10] - 2026-07-17
 
 - Added a downstream-impact gate for Fabricator releases that change shared

@@ -43,6 +43,8 @@ The contract should capture:
 
 - Plugin id and public display name.
 - Project root and backlog paths.
+- Automation display name and target label. Names must be unique and
+  target-specific, for example `<Plugin> weekly <purpose> (<target scope>)`.
 - Thread search queries and aliases.
 - Whether Fabricator production-process signals should be reported to a parent
   Fabricator project.
@@ -70,9 +72,14 @@ If the user declines, record Watch as disabled or skipped. Do not create a
 monitor silently.
 
 If the user enables monitoring and automation tools are available, propose or
-create the recurring automation using the platform automation mechanism. Prefer
-a daily cadence when the user says "regularly" or "passively" without a
-specific interval, but still state the chosen cadence.
+create the recurring automation using the platform automation mechanism. Before
+creating a new automation, inspect existing automations with the same visible
+name, plugin id, or target path and update the matching automation instead of
+creating a duplicate. Use a display name that includes the plugin, cadence,
+monitor purpose, and target scope so parent-project and child-project monitors
+cannot look identical in the UI. Prefer a daily cadence when the user says
+"regularly" or "passively" without a specific interval, but still state the
+chosen cadence.
 
 ## Daily Run
 

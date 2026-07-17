@@ -22,6 +22,8 @@ if your hobby is debugging ghosts.
 - Separate accumulation of findings from implementation work.
 - Verify installed cache, version, and fresh-chat loaded skill paths before
   judging test results.
+- Recover current Fabricator instructions when an old UI skill link points at a
+  removed installed-cache path.
 - Prepare public releases with README, license, changelog, CI, marketplace,
   runtime, and fresh-chat evidence.
 - Keep the public GitHub page current during every public update, including
@@ -36,6 +38,8 @@ if your hobby is debugging ghosts.
   how often, and where usage findings should be routed.
 - Watch stale scheduled runs separately from active work and archive completed
   monitor threads when the platform supports it.
+- Give scheduled monitors target-specific names so project, vault, and parent
+  Fabricator watches are easy to tell apart.
 
 ## Install
 

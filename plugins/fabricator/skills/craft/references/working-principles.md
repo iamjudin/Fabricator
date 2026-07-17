@@ -101,6 +101,11 @@ only a chat convention with the user.
   skill is unavailable. Resolve the latest installed plugin via `codex plugin
   list`, current cache directories, or the marketplace clone, and load the same
   skill from the current installed version before continuing.
+- For explicit Fabricator invocations with missing serialized paths, recover by
+  intent before giving up: visible skill label, plugin id and skill id, current
+  installed marketplace clone, cache manifest, and source project skill file
+  when available. Record the stale path as evidence and continue with the
+  newest proven Fabricator instructions.
 - Treat tool-route blocks as first-class production signals. If a workflow
   promises a route through Figma, browser, GitHub, or another connector, and a
   hook/guard/state machine blocks that route, inspect the blocking condition
