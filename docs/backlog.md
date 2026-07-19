@@ -14,6 +14,11 @@
 
 ## Runtime and release
 
+- [ ] Treat GitHub Release/tag as required public release evidence
+  - Evidence: July 19, 2026, screenshot from a plugin publication chat: the repository was pushed and installable, but no GitHub tag/release was created, leaving GitHub showing no published releases even though the plugin was described as public.
+  - Owner: Fabricator
+  - Suggested next action: Publish should distinguish repository publication from a complete GitHub Release, require tag creation, tag push, GitHub Release notes, and post-release public smoke before saying the release is done.
+
 ## Public page
 
 ## Watch
