@@ -12,6 +12,11 @@
 
 ## Workflow gaps
 
+- [ ] Enforce analysis-only phase before Craft implementation
+  - Evidence: July 20, 2026, thread `019f7c5a-504c-7333-ac34-c1d6f1757e54` (`Спроектировать плагин для публикаций`): the user explicitly asked for analysis before implementation and one plugin concept, but Craft proceeded to create a project scaffold, multiple files, backlog entries, and a checkpoint commit before approval.
+  - Owner: Fabricator
+  - Suggested next action: Craft should treat phrases such as "сперва анализ", "потом реализация", "сначала расскажи как понял", and "не делай пока" as a hard phase gate: summarize understanding, scope, risks, and proposed smallest next step, then wait for explicit implementation approval before editing files or committing.
+
 ## Runtime and release
 
 - [ ] Treat GitHub Release/tag as required public release evidence
