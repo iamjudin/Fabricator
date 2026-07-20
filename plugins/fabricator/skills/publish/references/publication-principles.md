@@ -61,14 +61,21 @@ Use these principles for every Fabricator Publish task.
 - Prefer updating GitHub page fields directly when available through trusted
   tooling. If a field requires manual UI work, mark release readiness as
   `Pending user/platform action` rather than silently skipping it.
+- A public repository push is not the same as a GitHub Release. For public
+  plugin releases, create and push the release tag, create GitHub Release notes
+  for that tag, and verify the release is visible before saying the release is
+  done.
 
 ## Runtime Evidence
 
 - Publishing source code does not prove users run that version.
-- Check repository state, marketplace clone, installed plugin cache, and fresh
-  chat loaded skill path as separate layers.
+- Check repository state, GitHub Release/tag state, marketplace clone,
+  installed plugin cache, and fresh chat loaded skill path as separate layers.
 - Check public repository presentation as a separate layer too. A correct
   installed plugin with a stale public page is not a complete public update.
+- Missing GitHub Release evidence is a release blocker, not a cosmetic note.
+  If the repository is public and installable but GitHub still shows no
+  published releases, the release is not complete.
 - If README install/update commands changed, run a clean install smoke using an
   isolated `CODEX_HOME` or equivalent temporary runtime state. The smoke should
   execute the public instructions exactly as written.

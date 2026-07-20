@@ -1,7 +1,7 @@
 {
   "name": "fabricator",
-  "version": "0.2.11+codex.20260717184500",
-  "description": "Fabricator helps create, maintain, publish, and observe reliable Codex plugins.",
+  "version": "0.2.12+codex.20260720120000",
+  "description": "Fabricator helps create, maintain, publish, and observe reliable Codex plugins and plugin-adjacent projects.",
   "author": {
     "name": "iamjudin"
   },
@@ -19,11 +19,12 @@
   "interface": {
     "displayName": "Fabricator",
     "shortDescription": "Create, maintain, and publish Codex plugins.",
-    "longDescription": "Fabricator helps turn plugin ideas and existing Codex plugins into clear, testable workflows. Craft handles local creation and maintenance. Publish handles public release preparation, package evidence, and runtime publication checks. Watch handles post-public usage monitoring and backlog intake.",
+    "longDescription": "Fabricator helps turn plugin ideas, existing Codex plugins, and plugin-adjacent project surfaces into clear, testable workflows. Craft handles local creation and maintenance. Publish handles public release preparation, package evidence, and runtime publication checks. Watch handles post-public usage monitoring and backlog intake.",
     "developerName": "iamjudin",
     "category": "Productivity",
     "capabilities": [
       "Codex plugin creation",
+      "Plugin-adjacent project workflow design",
       "Plugin workflow design",
       "Public plugin publishing",
       "Post-public plugin monitoring",

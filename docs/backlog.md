@@ -12,17 +12,19 @@
 
 ## Workflow gaps
 
-- [ ] Require project-start understanding gate before Craft implementation
+- [x] Require project-start understanding gate before Craft implementation
   - Evidence: July 20, 2026, thread `019f7c5a-504c-7333-ac34-c1d6f1757e54` (`Спроектировать плагин для публикаций`): the user explicitly asked for analysis before implementation and one plugin concept, but Craft proceeded to create a project scaffold, multiple files, backlog entries, and a checkpoint commit before approval.
   - Owner: Fabricator
   - Suggested next action: Craft should start every new plugin/project with a required understanding gate: restate the task, desired outcome, scope boundaries, what it will not do yet, assumptions, open questions, risks, and the smallest proposed next step. Phrases such as "сперва анализ", "потом реализация", "сначала расскажи как понял", and "не делай пока" make this a hard stop: wait for explicit implementation approval before editing files, scaffolding, or committing.
+  - Released in: Fabricator `0.2.12`.
 
 ## Runtime and release
 
-- [ ] Treat GitHub Release/tag as required public release evidence
+- [x] Treat GitHub Release/tag as required public release evidence
   - Evidence: July 19, 2026, screenshot from a plugin publication chat: the repository was pushed and installable, but no GitHub tag/release was created, leaving GitHub showing no published releases even though the plugin was described as public.
   - Owner: Fabricator
   - Suggested next action: Publish should distinguish repository publication from a complete GitHub Release, require tag creation, tag push, GitHub Release notes, and post-release public smoke before saying the release is done.
+  - Released in: Fabricator `0.2.12`.
 
 ## Public page
 

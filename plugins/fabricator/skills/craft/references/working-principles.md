@@ -25,6 +25,22 @@ only a chat convention with the user.
 
 - The user may give only the main project folder. Choose the remaining
   Codex-appropriate organization independently and explain meaningful choices.
+- Fabricator is plugin-first but may help with wider project work when that
+  project contains, supports, or may later become a Codex plugin. Classify the
+  active surface before changing files: plugin surface, project surface, or
+  mixed surface.
+- For project surfaces, keep Fabricator's useful process without dragging in
+  irrelevant plugin mechanics. Use backlog, project journal, source checks,
+  script tests, generated asset previews, dry runs, docs, and publication
+  evidence as appropriate. Do not require plugin manifests, marketplace setup,
+  plugin validator, installed cache checks, or fresh-chat smoke unless the
+  current surface is actually a plugin surface.
+- Every new plugin or project starts with an understanding gate: restate the
+  task, intended outcome, scope boundaries, what will not be done yet,
+  assumptions, open questions, risks, and the smallest proposed next step.
+  There should normally be open questions at project start. If the user says to
+  analyze first or asks how Craft understood the task, stop after that gate and
+  wait for explicit implementation approval.
 - When continuing after a context move, begin from a compact handoff anchor:
   the last accepted conclusion, the project it belongs to, and the next
   practical action. Recommend a fresh chat when runtime state matters, such as

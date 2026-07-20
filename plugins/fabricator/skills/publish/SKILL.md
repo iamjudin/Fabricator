@@ -19,13 +19,14 @@ Use Publish for public release preparation:
 1. Public repository readiness.
 2. Marketplace package layout.
 3. README, changelog, license, contribution files, and GitHub metadata.
-4. Release validation and CI.
-5. Public install/update instructions.
-6. Runtime evidence from marketplace, installed cache, and fresh-chat smoke.
-7. Public GitHub page refresh for every public update.
-8. Downstream impact propagation when Fabricator changes a shared plugin
+4. Git tag, pushed tag, and GitHub Release notes for public releases.
+5. Release validation and CI.
+6. Public install/update instructions.
+7. Runtime evidence from marketplace, installed cache, and fresh-chat smoke.
+8. Public GitHub page refresh for every public update.
+9. Downstream impact propagation when Fabricator changes a shared plugin
    production standard.
-9. Post-public monitoring setup for released plugins.
+10. Post-public monitoring setup for released plugins.
 
 Do not use Publish for ordinary local plugin creation, fixes, or pre-public
 runtime update work. That is Craft unless the user clearly chooses public
@@ -90,6 +91,10 @@ Verify public repository presentation:
     remote SHA, GitHub API contents, and exact-commit raw URL. Treat confirmed
     branch raw lag as propagation evidence to report, not as permission to skip
     public repository verification.
+13. For public releases, pushing a repository is not enough. Verify the release
+    tag exists locally and remotely, GitHub Release notes exist for that tag,
+    and GitHub no longer presents the repository as having no published
+    releases.
 
 ## Downstream Impact
 
@@ -119,17 +124,19 @@ Public release evidence must include both repository and Codex runtime layers:
 
 1. Clean Git status and pushed branch/tag evidence when publishing remotely.
 2. Local validation and official plugin validation.
-3. Public GitHub page evidence: README/changelog/release notes plus About
+3. GitHub Release evidence: release tag, pushed tag, and GitHub Release notes
+   that match the released behavior.
+4. Public GitHub page evidence: README/changelog/release notes plus About
    description/topics checked or explicitly marked pending user/platform action.
-4. Marketplace add/upgrade evidence.
-5. Installed plugin version and cache path.
-6. Fresh-chat loaded skill path matching the intended installed version.
-7. Smoke test of the public behavior, outside the plugin source repository when
+5. Marketplace add/upgrade evidence.
+6. Installed plugin version and cache path.
+7. Fresh-chat loaded skill path matching the intended installed version.
+8. Smoke test of the public behavior, outside the plugin source repository when
    repository context could distort the result.
-8. Clean install smoke evidence when public install/update instructions changed:
+9. Clean install smoke evidence when public install/update instructions changed:
    use an isolated `CODEX_HOME` or equivalent temporary runtime state and run
    the README commands exactly as written.
-9. If raw public branch artifacts are stale while the marketplace clone and
+10. If raw public branch artifacts are stale while the marketplace clone and
    exact commit are current, record that as a public artifact propagation
    signal and verify the installed marketplace source separately.
 
@@ -162,4 +169,6 @@ Give a release readiness result:
 - `Pending user/platform action`: the remaining step cannot be completed by the
   agent, such as setting GitHub topics, enabling 2FA, or final UI-only publish.
 
-Do not call a release ready without evidence.
+Do not call a release ready without evidence. Do not describe a public
+repository push as a complete release when the GitHub tag or GitHub Release is
+missing.

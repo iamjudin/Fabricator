@@ -107,6 +107,10 @@ def validate_skills() -> None:
         fail("Craft skill must recover from stale linked skill cache paths")
     if "recover by intent" not in craft and "visible skill label" not in craft:
         fail("Craft skill must include intent-based recovery for missing skill paths")
+    if "project surface" not in craft or "understanding gate" not in craft:
+        fail("Craft skill must classify project surfaces and require an understanding gate")
+    if "GitHub Release" not in publish or "pushed tag" not in publish:
+        fail("Publish skill must require GitHub Release and pushed tag evidence")
     if "passive monitoring" not in watch or "backlog" not in watch:
         fail("Watch skill must cover passive monitoring and backlog intake")
     if "target-specific" not in watch or "existing automations" not in watch:
@@ -130,7 +134,7 @@ def validate_public_docs() -> None:
     checklist = (ROOT / "docs" / "release-checklist.md").read_text(encoding="utf-8")
     if "Public Page Done" not in checklist:
         fail("release checklist must include Public Page Done")
-    for required in ("raw public", "isolated `CODEX_HOME`", "local marketplace smoke", "propagation", "Downstream Impact", "Post-Public Watch"):
+    for required in ("raw public", "isolated `CODEX_HOME`", "local marketplace smoke", "propagation", "Downstream Impact", "GitHub Release notes", "Post-Public Watch"):
         if required not in checklist:
             fail(f"release checklist must mention {required}")
     ok("public docs are present")

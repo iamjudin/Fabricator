@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.12] - 2026-07-20
+
+- Craft now supports plugin-adjacent project surfaces while staying plugin-first:
+  it must classify plugin, project, or mixed surfaces before applying gates.
+- Craft now requires a project-start understanding gate before implementing new
+  plugin or project work.
+- Publish now treats GitHub tag and GitHub Release notes as required public
+  release evidence, not optional polish after a repository push.
+- Closed the backlog items for project-start understanding and GitHub
+  Release/tag evidence.
+
 ## [0.2.11] - 2026-07-17
 
 - Craft now has an explicit intent-based recovery path for serialized

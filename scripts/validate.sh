@@ -19,10 +19,12 @@ VALIDATOR="$HOME/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py
 if [[ -f "$VALIDATOR" ]]; then
   if ! "$PYTHON_BIN" -c 'import yaml' >/dev/null 2>&1; then
     YAML_SHIM=""
-    for candidate in /private/tmp/*yaml-shim; do
+    for candidate in "$REPO_DIR/scripts/yaml-shim" /private/tmp/*yaml-shim; do
       if [[ -d "$candidate" ]] && PYTHONPATH="$candidate" "$PYTHON_BIN" -c 'import yaml' >/dev/null 2>&1; then
-        YAML_SHIM="$candidate"
-        break
+        if PYTHONPATH="$candidate" "$PYTHON_BIN" -c 'import yaml; data = yaml.safe_load("interface:\n  display_name: Test\n"); assert isinstance(data.get("interface"), dict); assert hasattr(yaml, "YAMLError")' >/dev/null 2>&1; then
+          YAML_SHIM="$candidate"
+          break
+        fi
       fi
     done
     if [[ -n "$YAML_SHIM" ]]; then

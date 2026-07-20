@@ -16,7 +16,12 @@ if your hobby is debugging ghosts.
 
 ## Features
 
-- Build Codex plugin workflows from an idea or an existing project.
+- Build Codex plugin workflows and plugin-adjacent project surfaces from an
+  idea or an existing project.
+- Classify whether the current work is a plugin surface, project surface, or
+  mixed surface before applying gates.
+- Start new projects with an understanding gate: outcome, boundaries,
+  assumptions, open questions, risks, and the smallest next step.
 - Maintain skills, hooks, marketplace setup, validation, and local runtime
   installation.
 - Separate accumulation of findings from implementation work.
@@ -25,7 +30,7 @@ if your hobby is debugging ghosts.
 - Recover current Fabricator instructions when an old UI skill link points at a
   removed installed-cache path.
 - Prepare public releases with README, license, changelog, CI, marketplace,
-  runtime, and fresh-chat evidence.
+  GitHub Release/tag, runtime, and fresh-chat evidence.
 - Keep the public GitHub page current during every public update, including
   README-visible behavior, changelog, release notes, About/topics, and
   install/update instructions.

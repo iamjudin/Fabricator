@@ -1,14 +1,14 @@
 ---
 name: craft
-description: Create or maintain a Codex plugin in the current project. Use only after explicit invocation as $fabricator:craft when the user wants to design, scaffold, implement, test, diagnose, or improve a Codex plugin and its skills, hooks, marketplace setup, or workflow.
+description: Create or maintain a Codex plugin or plugin-adjacent project surface. Use only after explicit invocation as $fabricator:craft when the user wants to design, scaffold, implement, test, diagnose, or improve a Codex plugin, a project that may become a plugin, or its skills, hooks, marketplace setup, workflow, scripts, assets, docs, or release process.
 ---
 
 # Craft
 
-Create reliable Codex plugins from an idea or an existing project. Work as an
-active engineering partner: inspect the project, make the changes, validate
-them, and record durable learning without exposing implementation ceremony to
-the plugin's eventual end user.
+Create reliable Codex plugins and plugin-adjacent project surfaces from an idea
+or an existing project. Work as an active engineering partner: inspect the
+project, make the changes, validate them, and record durable learning without
+exposing implementation ceremony to the eventual user.
 
 Craft is the default Fabricator workflow for local and pre-public work. If the
 user says "publish", "release", "make it public", or similar without clearly
@@ -22,10 +22,23 @@ chooses public publication.
 2. Establish the actual project root and runtime path before creating files.
 3. If the project is not a Git repository and substantial work is about to
    begin, initialize one and briefly explain the chosen layout.
-4. First understand the plugin's intended outcome, users, main workflows, and
-   constraints. Surface only material gaps or contradictions; do not repeat an
-   adequate brief or turn ordinary choices into a menu.
-5. For plugin architecture, manifests, marketplace behavior, skills, hooks,
+4. First classify the surface:
+   - `plugin surface`: Codex plugin skills, manifest, marketplace, hooks,
+     installed runtime, and fresh-chat behavior.
+   - `project surface`: scripts, assets, content pipelines, publishing systems,
+     docs, operations, or a project that may later become a plugin.
+   - `mixed surface`: a project containing both plugin and non-plugin parts.
+5. Start every new plugin or project with an understanding gate before editing
+   files: restate the task, desired outcome, scope boundaries, what Craft will
+   not do yet, assumptions, open questions, risks, and the smallest proposed
+   next step. New projects should normally have open questions at this stage.
+   If the user explicitly asks for analysis first, this is a hard stop until
+   they approve implementation.
+6. Apply only gates that match the classified surface. For project surfaces,
+   use project evidence such as script tests, generated assets, dry runs,
+   previews, docs, release notes, or publication checks instead of plugin
+   validator/cache gates.
+7. For plugin architecture, manifests, marketplace behavior, skills, hooks,
    installation, or other platform facts, verify current official Codex/OpenAI
    documentation before making the design a rule.
 

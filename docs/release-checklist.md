@@ -21,11 +21,15 @@ Use this before tagging a public Fabricator release.
 - Confirm issue and PR templates are present.
 - Confirm CI runs `scripts/validate.sh`.
 - Confirm GitHub About description and topics match the release.
+- Confirm the release tag exists locally.
+- Confirm the release tag is pushed to the public repository.
+- Confirm GitHub Release notes exist for the release tag.
 - Confirm GitHub Release notes match the release and do not describe an older
   public behavior.
 - Confirm install/update commands on the public page are still correct.
 - After push/release, confirm raw public `README.md` and package
   `.codex-plugin/plugin.json` match the released version and instructions.
+- Confirm GitHub no longer shows the project as having no published releases.
 - If raw branch URLs lag, compare remote SHA, GitHub API contents, and
   exact-commit raw URLs; report propagation evidence rather than skipping the
   public artifact check.
