@@ -35,6 +35,13 @@ only a chat convention with the user.
   evidence as appropriate. Do not require plugin manifests, marketplace setup,
   plugin validator, installed cache checks, or fresh-chat smoke unless the
   current surface is actually a plugin surface.
+- Keep generated work inside the project when a project folder exists. Prefer
+  project-owned scratch/output paths such as `var/`, `tmp/`, `outputs/`,
+  `assets/`, or a documented project-specific equivalent. Use global temp
+  directories only for throwaway helper scripts, sandbox-required
+  intermediates, or files that cannot safely live in the repo. Clean global
+  temp artifacts before handoff when they are no longer needed, and record any
+  deliberate external artifact path plus cleanup owner.
 - Every new plugin or project starts with an understanding gate: restate the
   task, intended outcome, scope boundaries, what will not be done yet,
   assumptions, open questions, risks, and the smallest proposed next step.

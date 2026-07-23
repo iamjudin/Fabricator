@@ -18,6 +18,18 @@
   number of active child projects or repeated misses make the registry clearly
   cheaper than manual discovery.
 
+## Project Workspace Hygiene
+
+- If a project has a folder, project work belongs inside that folder by
+  default: source edits, generated assets, previews, scratch outputs, logs, and
+  run artifacts should use project-owned paths.
+- Use global temporary directories such as `/private/tmp` only for genuinely
+  throwaway helper scripts, sandbox-required intermediates, or artifacts that
+  cannot safely live in the project. Prefer project-specific names and clean
+  them up before handoff when they are no longer needed.
+- If an artifact must remain outside the project, record why, where it lives,
+  and who owns cleanup. Do not let global temp become hidden project storage.
+
 ## Context Moves
 
 - When continuing work after a context move, restart with a compact handoff

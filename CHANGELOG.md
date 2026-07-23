@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.13] - 2026-07-23
+
+- Added project workspace hygiene rules: if a project has a folder, generated
+  assets, previews, scratch outputs, logs, and run artifacts should live in
+  project-owned paths by default.
+- Craft now treats global temp directories as throwaway-only unless a sandbox
+  or external-tool constraint requires them, and requires cleanup or explicit
+  ownership for external artifacts.
+- Public validation now checks that Craft keeps project work out of global temp
+  by default.
+
 ## [0.2.12] - 2026-07-20
 
 - Craft now supports plugin-adjacent project surfaces while staying plugin-first:

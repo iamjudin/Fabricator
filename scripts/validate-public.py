@@ -109,6 +109,8 @@ def validate_skills() -> None:
         fail("Craft skill must include intent-based recovery for missing skill paths")
     if "project surface" not in craft or "understanding gate" not in craft:
         fail("Craft skill must classify project surfaces and require an understanding gate")
+    if "global temp" not in craft or "project-owned" not in craft:
+        fail("Craft skill must require project-owned workspace hygiene")
     if "GitHub Release" not in publish or "pushed tag" not in publish:
         fail("Publish skill must require GitHub Release and pushed tag evidence")
     if "passive monitoring" not in watch or "backlog" not in watch:

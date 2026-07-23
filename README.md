@@ -22,6 +22,8 @@ if your hobby is debugging ghosts.
   mixed surface before applying gates.
 - Start new projects with an understanding gate: outcome, boundaries,
   assumptions, open questions, risks, and the smallest next step.
+- Keep project artifacts in project-owned paths by default and treat global
+  temp as throwaway-only.
 - Maintain skills, hooks, marketplace setup, validation, and local runtime
   installation.
 - Separate accumulation of findings from implementation work.

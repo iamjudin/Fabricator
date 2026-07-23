@@ -38,7 +38,13 @@ chooses public publication.
    use project evidence such as script tests, generated assets, dry runs,
    previews, docs, release notes, or publication checks instead of plugin
    validator/cache gates.
-7. For plugin architecture, manifests, marketplace behavior, skills, hooks,
+7. Establish project workspace hygiene before generating artifacts. If the
+   project has a folder, source edits, reusable assets, previews, logs, run
+   outputs, and scratch files belong in project-owned paths by default. Use
+   global temp only for throwaway helper scripts, sandbox-required
+   intermediates, or files that cannot safely live in the project; clean them
+   up before handoff or record why they must remain outside the project.
+8. For plugin architecture, manifests, marketplace behavior, skills, hooks,
    installation, or other platform facts, verify current official Codex/OpenAI
    documentation before making the design a rule.
 
