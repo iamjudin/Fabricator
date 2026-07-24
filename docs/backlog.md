@@ -20,6 +20,11 @@
 
 ## Runtime and release
 
+- [ ] Discover plugin source path before running maintenance tests
+  - Evidence: July 24, 2026, thread `019f9348-9b2e-75b1-8632-9a9b5e56a640` (`Bookworm weekly runtime drift`): the monitor first ran tests from the repository root, where `tests` was not importable, then reran from the actual plugin source path `plugins/bookworm` and passed 72/72 tests.
+  - Owner: Fabricator
+  - Suggested next action: Craft/Watch maintenance prompts should identify the source manifest or package root before test commands, and record the intended test cwd in the monitoring contract.
+
 - [x] Treat GitHub Release/tag as required public release evidence
   - Evidence: July 19, 2026, screenshot from a plugin publication chat: the repository was pushed and installable, but no GitHub tag/release was created, leaving GitHub showing no published releases even though the plugin was described as public.
   - Owner: Fabricator
@@ -29,6 +34,11 @@
 ## Public page
 
 ## Watch
+
+- [ ] Emit final Watch digest before archiving automation threads
+  - Evidence: July 24, 2026, thread `019f9348-9b2e-75b1-8632-9a9b5e56a640` (`Bookworm weekly runtime drift`): after checks passed and memory was updated, the run announced it would archive the task and then give the final report, but the thread ended as `interrupted` with no final digest.
+  - Owner: Fabricator
+  - Suggested next action: Watch should write memory, emit the final monitoring result, and only then call the archive tool; add this ordering to automation prompts and Watch examples.
 
 - [x] Make Watch automation names and targets unambiguous across parent/plugin projects
   - Evidence: July 15, 2026, thread `019f6751-b22c-7b00-b288-21667922f784` (`Проверить Bookworm на стандарты`), two `Daily Bookworm quality review` automations existed with the same visible title but different targets (`/Users/iamjudin/Desktop/Plugins/Bookworm` and `/Users/iamjudin/Desktop/Brain`), which made the active monitor unclear until one duplicate was removed.
