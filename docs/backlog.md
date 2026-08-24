@@ -35,6 +35,11 @@
 
 ## Watch
 
+- [ ] Keep Codex thread tool calls within discovered schema limits
+  - Evidence: August 21, 2026, thread `01a0243e-a822-7160-8d20-84536c27bbbe` (`Fabricator weekly Watch (Fabricator project)`): the run attempted `list_threads` with `limit=80`, but the Codex app schema accepts at most `50`; the turn remained `inProgress` and no final monitoring digest was emitted. August 24, 2026, current Watch run reproduced the pattern with `list_threads limit=100` and `read_thread turnLimit=20` before adapting to the actual tool limits.
+  - Owner: Fabricator
+  - Suggested next action: Watch prompts/examples should first respect or discover Codex app tool schema limits, use bounded pagination (`list_threads <= 50`, `read_thread turnLimit <= 10` in the observed app), and treat invalid-argument tool failures as monitor-health evidence before continuing.
+
 - [ ] Emit final Watch digest before archiving automation threads
   - Evidence: July 24, 2026, thread `019f9348-9b2e-75b1-8632-9a9b5e56a640` (`Bookworm weekly runtime drift`): after checks passed and memory was updated, the run announced it would archive the task and then give the final report, but the thread ended as `interrupted` with no final digest.
   - Owner: Fabricator
