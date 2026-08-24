@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.14] - 2026-08-25
+
+- Removed the Watch workflow and its scheduled/passive monitoring contract.
+- Publish no longer offers recurring post-public monitoring after release.
+- Fabricator now treats chat review as manual project work: inspect a named
+  chat/thread when the user asks, then route concrete findings to the owning
+  backlog.
+- Removed public validation requirements for Watch skills and post-public
+  Watch checklist gates.
+- Deleted the active Fabricator weekly Watch automation after stale scheduled
+  runs proved too fragile for the value they delivered.
+
 ## [0.2.13] - 2026-07-23
 
 - Added project workspace hygiene rules: if a project has a folder, generated

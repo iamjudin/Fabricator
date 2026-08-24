@@ -156,7 +156,7 @@ one of the main product surfaces Fabricator has to manage.
 After downstream-propagation work, the project added a constraint against
 building systems too early. Fabricator should start with the smallest durable
 mechanism that preserves the benefit: an existing checklist, backlog item,
-Watch contract, or direct source fix. A dedicated registry or new automation is
+release note, or direct source fix. A dedicated registry or new automation is
 worth adding only when repeated misses make it cheaper than manual discovery.
 
 Evidence:
@@ -193,7 +193,7 @@ Evidence:
 Article angle: the project-start gate is a product lesson about consent and
 scope, not just a planning nicety.
 
-## 2026-07-20 - Current state snapshot
+## 2026-07-20 - Historical state snapshot
 
 Current public version is `0.2.12+codex.20260720120000` in the plugin manifest.
 The active product surface has three workflows:
@@ -226,3 +226,31 @@ Useful future article threads:
 - The tension between strict release gates and useful simplicity.
 - Why Fabricator treats stale links, caches, and already-open chats as product
   facts, not operator mistakes.
+
+## 2026-08-25 - Watch workflow retired instead of paused
+
+Fabricator `0.2.14` removed the Watch workflow after scheduled background
+review proved too fragile for its practical value. The product decision was not
+to preserve a dormant skill with "do not use" rules. Retired experiments should
+lose their active surface area: skills, release gates, validator expectations,
+automation contracts, and backlog items should be removed or closed rather than
+left as tails.
+
+Manual review remains part of normal project work. When the user points at a
+specific chat, thread, or production symptom, Fabricator can inspect that
+evidence, classify ownership, and route a concrete finding to the right
+backlog. There is no separate post-public monitoring workflow.
+
+Evidence:
+
+- Deleted `plugins/fabricator/skills/watch/`
+- `README.md`
+- `plugins/fabricator/skills/publish/SKILL.md`
+- `plugins/fabricator/skills/publish/references/publication-principles.md`
+- `docs/release-checklist.md`
+- `docs/backlog.md`
+- `scripts/validate-public.py`
+
+Article angle: the cleanest way to retire a failed workflow is to remove its
+buttons, contracts, and validators. A rule that says "ignore this old thing" is
+itself a product tail.

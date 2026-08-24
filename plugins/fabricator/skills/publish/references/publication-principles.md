@@ -88,10 +88,10 @@ Use these principles for every Fabricator Publish task.
 
 When a Fabricator release changes a shared plugin-production standard, the
 release is not complete until downstream impact is checked. Shared standards
-include Craft runtime completion rules, Publish release gates, Watch contracts,
-monitoring cadence or archive behavior, stale-runtime detection, public page
-requirements, and other rules that child plugin projects may have copied into
-their own docs, backlog, automations, or release checklists.
+include Craft runtime completion rules, Publish release gates, manual chat
+review expectations, public page requirements, and other rules that child
+plugin projects may have copied into their own docs, backlog, or release
+checklists.
 
 Classify the release:
 
@@ -100,28 +100,23 @@ Classify the release:
   through the smallest durable artifact each project already uses.
 
 Known child projects should be discovered from local plugin workspaces,
-`.fabricator` metadata, Watch contracts, project backlogs, release notes, and
-recent thread evidence. Do not require a child project to have Fabricator
-installed in its usage chat.
+`.fabricator` metadata, project backlogs, release notes, and recent thread
+evidence. Do not require a child project to have Fabricator installed in its
+usage chat.
 
-Propagation can be a source change, checklist update, Watch contract update,
-or backlog item. If the child project is unavailable or outside the current
-write scope, record a pending propagation item with the project name, affected
-rule, and next action instead of silently skipping it.
+Propagation can be a source change, checklist update, release note, or backlog
+item. If the child project is unavailable or outside the current write scope,
+record a pending propagation item with the project name, affected rule, and
+next action instead of silently skipping it.
 
-## Post-Public Monitoring
+## Post-Release Learning
 
-- Publication is the point where passive monitoring becomes useful. During
-  active debugging, the user can still point Craft at a specific test chat.
-- After Publish completes, ask whether to monitor the released plugin project
-  and how often. Do not assume monitoring is desired.
-- Monitoring belongs to the plugin that owns the behavior. Fabricator receives
-  production-process findings only when a parent Fabricator project exists; the
-  child plugin receives its own usage findings.
-- A released child plugin should be able to monitor usage without Fabricator
-  being connected in the usage chat or available as a project.
-- A skill cannot wake itself. Use Codex automations, project rules, or another
-  explicit schedule for passive monitoring.
+- Post-release learning is manual and evidence-triggered. During active
+  debugging or post-release usage, the user can point Fabricator at a specific
+  test chat, release chat, or production symptom.
+- Manual review belongs to the plugin or project that owns the behavior.
+  Fabricator receives production-process findings; child plugins receive their
+  own usage findings.
 
 ## Release Result
 

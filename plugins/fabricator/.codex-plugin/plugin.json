@@ -1,7 +1,7 @@
 {
   "name": "fabricator",
-  "version": "0.2.13+codex.20260723114500",
-  "description": "Fabricator helps create, maintain, publish, and observe reliable Codex plugins and plugin-adjacent projects.",
+  "version": "0.2.14+codex.20260825003000",
+  "description": "Fabricator helps create, maintain, publish, and review reliable Codex plugins and plugin-adjacent projects.",
   "author": {
     "name": "iamjudin"
   },
@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "Fabricator",
     "shortDescription": "Create, maintain, and publish Codex plugins.",
-    "longDescription": "Fabricator helps turn plugin ideas, existing Codex plugins, and plugin-adjacent project surfaces into clear, testable workflows. Craft handles local creation and maintenance. Publish handles public release preparation, package evidence, and runtime publication checks. Watch handles post-public usage monitoring and backlog intake.",
+    "longDescription": "Fabricator helps turn plugin ideas, existing Codex plugins, and plugin-adjacent project surfaces into clear, testable workflows. Craft handles local creation and maintenance. Publish handles public release preparation, package evidence, and runtime publication checks. Requested chat reviews are handled as manual project work instead of recurring background monitoring.",
     "developerName": "iamjudin",
     "category": "Productivity",
     "capabilities": [
@@ -27,12 +27,12 @@
       "Plugin-adjacent project workflow design",
       "Plugin workflow design",
       "Public plugin publishing",
-      "Post-public plugin monitoring",
+      "Requested chat review",
       "Official documentation checks",
       "Runtime and hook isolation",
       "Validation and Git checkpoints"
     ],
-    "defaultPrompt": "Use Fabricator for Codex plugin creation, publishing, monitoring, and runtime updates.",
+    "defaultPrompt": "Use Fabricator for Codex plugin creation, publishing, review, and runtime updates.",
     "brandColor": "#000000",
     "composerIcon": "./assets/icon_fab.png",
     "logo": "./assets/icon_fab.png"

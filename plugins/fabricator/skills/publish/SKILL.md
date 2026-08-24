@@ -26,7 +26,7 @@ Use Publish for public release preparation:
 8. Public GitHub page refresh for every public update.
 9. Downstream impact propagation when Fabricator changes a shared plugin
    production standard.
-10. Post-public monitoring setup for released plugins.
+10. Manual post-release learning note for requested chat reviews.
 
 Do not use Publish for ordinary local plugin creation, fixes, or pre-public
 runtime update work. That is Craft unless the user clearly chooses public
@@ -99,16 +99,16 @@ Verify public repository presentation:
 ## Downstream Impact
 
 Before declaring a Fabricator release ready, classify whether the change affects
-only Fabricator itself or changes a shared Craft, Publish, Watch, release, or
-runtime standard that child plugin projects depend on.
+only Fabricator itself or changes a shared Craft, Publish, release, runtime, or
+manual review standard that child plugin projects depend on.
 
 If the release changes a shared standard:
 
 1. Find known Fabricator-made or Fabricator-maintained plugin projects from the
-   local plugin workspace, project metadata, release notes, Watch contracts, and
-   recent field evidence.
+   local plugin workspace, project metadata, release notes, backlogs, and recent
+   field evidence.
 2. Identify which projects need propagation: backlog entry, checklist update,
-   Watch contract update, release note, or direct source change.
+   release note, or direct source change.
 3. Apply the smallest safe update when the project is available and in scope.
    If a project is outside the writable scope or should not be changed during
    this release, record the exact pending propagation item and owner.
@@ -147,18 +147,14 @@ public marketplace path that users are told to use.
 If a chat preview points at an older or missing cache path, treat the smoke test
 as stale runtime evidence, not product behavior.
 
-## Post-Public Monitoring
+## Post-Release Learning
 
-After release readiness is `Ready` and runtime smoke has passed, offer Watch
-setup for the released plugin project. Ask whether the user wants passive
-monitoring, how often it should run, which projects or chat patterns count as
-plugin usage, and whether production-process findings should also report to a
-parent Fabricator project when one exists.
-
-Do not enable monitoring silently. If the user declines, record Watch as
-disabled/skipped for the release. If the user accepts and automation tools are
-available, configure or propose the recurring monitor through Fabricator: Watch
-or the platform automation mechanism.
+After release readiness is `Ready` and runtime smoke has passed, close with the
+release evidence and a simple note that future learning happens through manual
+review of concrete chats, threads, or production symptoms. When the user points
+at one, inspect that evidence as manual project work, classify whether the
+finding belongs to Fabricator or the child plugin/project, and route it to the
+owning backlog.
 
 ## Output
 

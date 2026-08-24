@@ -20,10 +20,11 @@
 
 ## Runtime and release
 
-- [ ] Discover plugin source path before running maintenance tests
+- [x] Discover plugin source path before running maintenance tests
   - Evidence: July 24, 2026, thread `019f9348-9b2e-75b1-8632-9a9b5e56a640` (`Bookworm weekly runtime drift`): the monitor first ran tests from the repository root, where `tests` was not importable, then reran from the actual plugin source path `plugins/bookworm` and passed 72/72 tests.
   - Owner: Fabricator
-  - Suggested next action: Craft/Watch maintenance prompts should identify the source manifest or package root before test commands, and record the intended test cwd in the monitoring contract.
+  - Suggested next action: Retired with scheduled Watch in Fabricator `0.2.14`; manual Craft reviews already start by establishing the actual project root before creating files or running project checks.
+  - Retired in: Fabricator `0.2.14`.
 
 - [x] Treat GitHub Release/tag as required public release evidence
   - Evidence: July 19, 2026, screenshot from a plugin publication chat: the repository was pushed and installable, but no GitHub tag/release was created, leaving GitHub showing no published releases even though the plugin was described as public.
@@ -33,26 +34,28 @@
 
 ## Public page
 
-## Watch
+## Retired Watch
 
-- [ ] Keep Codex thread tool calls within discovered schema limits
+- [x] Keep Codex thread tool calls within discovered schema limits
   - Evidence: August 21, 2026, thread `01a0243e-a822-7160-8d20-84536c27bbbe` (`Fabricator weekly Watch (Fabricator project)`): the run attempted `list_threads` with `limit=80`, but the Codex app schema accepts at most `50`; the turn remained `inProgress` and no final monitoring digest was emitted. August 24, 2026, current Watch run reproduced the pattern with `list_threads limit=100` and `read_thread turnLimit=20` before adapting to the actual tool limits.
   - Owner: Fabricator
-  - Suggested next action: Watch prompts/examples should first respect or discover Codex app tool schema limits, use bounded pagination (`list_threads <= 50`, `read_thread turnLimit <= 10` in the observed app), and treat invalid-argument tool failures as monitor-health evidence before continuing.
+  - Suggested next action: Retired with scheduled Watch in Fabricator `0.2.14`; do not preserve a dormant Watch rule just to avoid this failure mode.
+  - Retired in: Fabricator `0.2.14`.
 
-- [ ] Emit final Watch digest before archiving automation threads
+- [x] Emit final Watch digest before archiving automation threads
   - Evidence: July 24, 2026, thread `019f9348-9b2e-75b1-8632-9a9b5e56a640` (`Bookworm weekly runtime drift`): after checks passed and memory was updated, the run announced it would archive the task and then give the final report, but the thread ended as `interrupted` with no final digest.
   - Owner: Fabricator
-  - Suggested next action: Watch should write memory, emit the final monitoring result, and only then call the archive tool; add this ordering to automation prompts and Watch examples.
+  - Suggested next action: Retired with scheduled Watch in Fabricator `0.2.14`; final user-facing reporting now belongs to ordinary manual review flow.
+  - Retired in: Fabricator `0.2.14`.
 
 - [x] Make Watch automation names and targets unambiguous across parent/plugin projects
   - Evidence: July 15, 2026, thread `019f6751-b22c-7b00-b288-21667922f784` (`Проверить Bookworm на стандарты`), two `Daily Bookworm quality review` automations existed with the same visible title but different targets (`/Users/iamjudin/Desktop/Plugins/Bookworm` and `/Users/iamjudin/Desktop/Brain`), which made the active monitor unclear until one duplicate was removed.
   - Owner: Fabricator
-  - Suggested next action: Watch setup should require target-specific naming or a recorded target label when creating child-plugin monitors.
+  - Suggested next action: Historical fix from `0.2.11`; recurring Watch was later retired in Fabricator `0.2.14`.
   - Released in: Fabricator `0.2.11`.
 
 - [x] Detect and report stale automation runs
   - Evidence: July 17, 2026, current Fabricator thread: scheduled task UI showed `Bookworm runtime drift monitor` stuck `In progress` since `2026-07-17 11:16:48 MSK`, and an older `Fabricator daily Watch` run stuck `In progress` since `2026-07-16 20:24:13 MSK`, even though a newer Fabricator Watch run completed.
   - Owner: Fabricator
-  - Suggested next action: Watch should check previous automation runs for stale `inProgress` state, distinguish stale runs from active work, report the finding, and archive completed monitor threads when possible.
+  - Suggested next action: Historical fix from `0.2.10`; recurring Watch was later retired in Fabricator `0.2.14`.
   - Released in: Fabricator `0.2.10`.

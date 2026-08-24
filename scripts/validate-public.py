@@ -87,7 +87,7 @@ def validate_manifest() -> None:
 
 
 def validate_skills() -> None:
-    for name in ("craft", "publish", "watch"):
+    for name in ("craft", "publish"):
         skill_path = PLUGIN / "skills" / name / "SKILL.md"
         require_file(skill_path)
         text = skill_path.read_text(encoding="utf-8")
@@ -96,13 +96,14 @@ def validate_skills() -> None:
         require_file(PLUGIN / "skills" / name / "agents" / "openai.yaml")
     craft = (PLUGIN / "skills" / "craft" / "SKILL.md").read_text(encoding="utf-8")
     publish = (PLUGIN / "skills" / "publish" / "SKILL.md").read_text(encoding="utf-8")
-    watch = (PLUGIN / "skills" / "watch" / "SKILL.md").read_text(encoding="utf-8")
     if "public release" not in publish or "fresh-chat" not in publish:
         fail("Publish skill must mention public release and fresh-chat evidence")
     if "public GitHub page" not in publish:
         fail("Publish skill must require public GitHub page refresh")
-    if "Post-Public Monitoring" not in publish or "Fabricator: Watch" not in publish:
-        fail("Publish skill must require post-public Watch setup")
+    if "Fabricator: Watch" in publish or "$fabricator:watch" in publish or "Post-Public Monitoring" in publish:
+        fail("Publish skill must not reference the retired Watch workflow")
+    if "manual project work" not in publish:
+        fail("Publish skill must route post-release learning to manual project work")
     if "stale linked skill path" not in craft and "UI skill chip" not in craft:
         fail("Craft skill must recover from stale linked skill cache paths")
     if "recover by intent" not in craft and "visible skill label" not in craft:
@@ -113,22 +114,22 @@ def validate_skills() -> None:
         fail("Craft skill must require project-owned workspace hygiene")
     if "GitHub Release" not in publish or "pushed tag" not in publish:
         fail("Publish skill must require GitHub Release and pushed tag evidence")
-    if "passive monitoring" not in watch or "backlog" not in watch:
-        fail("Watch skill must cover passive monitoring and backlog intake")
-    if "target-specific" not in watch or "existing automations" not in watch:
-        fail("Watch skill must require target-specific automation names and duplicate checks")
     if "clarify" not in craft.lower() or "Publish" not in craft:
         fail("Craft skill must route ambiguous publication intent")
-    ok("Craft, Publish, and Watch skills are present")
+    if (PLUGIN / "skills" / "watch").exists():
+        fail("Watch skill has been retired and must not be packaged")
+    ok("Craft and Publish skills are present")
 
 
 def validate_public_docs() -> None:
     for rel in ("README.md", "CHANGELOG.md", "CONTRIBUTING.md", "LICENSE", "docs/release-checklist.md"):
         require_file(ROOT / rel)
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    for required in ("Fabricator", "Craft", "Publish", "Watch", "Install", "Update", "License"):
+    for required in ("Fabricator", "Craft", "Publish", "Install", "Update", "License"):
         if required not in readme:
             fail(f"README is missing {required}")
+    if "$fabricator:watch" in readme or "passive monitoring" in readme or "Watch" in readme:
+        fail("README must not advertise retired Watch/passive monitoring")
     if "codex plugin marketplace add iamjudin/Fabricator" not in readme:
         fail("README install command must mention iamjudin/Fabricator")
     if "\n## Development\n" in readme or "scripts/validate.sh" in readme:
@@ -136,7 +137,7 @@ def validate_public_docs() -> None:
     checklist = (ROOT / "docs" / "release-checklist.md").read_text(encoding="utf-8")
     if "Public Page Done" not in checklist:
         fail("release checklist must include Public Page Done")
-    for required in ("raw public", "isolated `CODEX_HOME`", "local marketplace smoke", "propagation", "Downstream Impact", "GitHub Release notes", "Post-Public Watch"):
+    for required in ("raw public", "isolated `CODEX_HOME`", "local marketplace smoke", "propagation", "Downstream Impact", "GitHub Release notes", "Post-Release Learning"):
         if required not in checklist:
             fail(f"release checklist must mention {required}")
     ok("public docs are present")
@@ -171,8 +172,6 @@ def validate_no_russian_public_names() -> None:
         PLUGIN / ".codex-plugin" / "plugin.json",
         PLUGIN / "skills" / "publish" / "SKILL.md",
         PLUGIN / "skills" / "publish" / "references" / "publication-principles.md",
-        PLUGIN / "skills" / "watch" / "SKILL.md",
-        PLUGIN / "skills" / "watch" / "references" / "watch-principles.md",
     ]
     forbidden = ("Фабрикатор", "Крафт", "Паблишь", "Паблик")
     for path in public_files:

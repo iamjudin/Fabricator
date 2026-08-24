@@ -39,13 +39,12 @@ Use this before tagging a public Fabricator release.
 ## Downstream Impact
 
 - Classify the release as Fabricator-only or shared-standard.
-- If the release changes a shared Craft, Publish, Watch, release, runtime, or
-  public-page standard, find known Fabricator-made or Fabricator-maintained
-  child plugin projects from local plugin workspaces, `.fabricator` metadata,
-  Watch contracts, backlogs, release notes, and recent field evidence.
+- If the release changes a shared Craft, Publish, release, runtime, manual
+  review, or public-page standard, find known Fabricator-made or
+  Fabricator-maintained child plugin projects from local plugin workspaces,
+  `.fabricator` metadata, backlogs, release notes, and recent field evidence.
 - For each affected child project, apply the smallest durable propagation:
-  source/checklist update, Watch contract update, release note, or backlog
-  item.
+  source/checklist update, release note, or backlog item.
 - If a child project is unavailable or outside the current write scope, record
   the pending propagation item with project, affected rule, owner, and next
   action before release readiness is declared.
@@ -106,13 +105,9 @@ A public update is not done until the GitHub repository page is current:
 - Any raw branch propagation lag is explained with API/exact-commit evidence.
 - Public visible asset references are current.
 
-## Post-Public Watch
+## Post-Release Learning
 
-- After release readiness and runtime smoke pass, ask whether passive monitoring
-  should be enabled for this plugin project.
-- Ask for monitoring cadence: daily, weekly, or custom.
-- Ask which projects or chat patterns count as plugin usage.
-- Ask whether Fabricator production-process findings should report to a parent
-  Fabricator backlog when a parent project exists.
-- If enabled, configure or propose the recurring monitor with the platform
-  automation mechanism. If declined, record Watch as disabled/skipped.
+- Close the release with evidence. Future learning happens when the user points
+  at a concrete chat, thread, or production symptom.
+- Route findings to the backlog owned by the affected workflow, plugin, or
+  project.
