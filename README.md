@@ -24,6 +24,8 @@ if your hobby is debugging ghosts.
   temp as throwaway-only.
 - Maintain skills, hooks, marketplace setup, validation, and local runtime
   installation.
+- Check GitHub remote/auth readiness before remote creation, push, tag, or
+  release, and stop at a clear user-action boundary when auth is missing.
 - Separate accumulation of findings from implementation work.
 - Verify installed cache, version, and fresh-chat loaded skill paths before
   judging test results.

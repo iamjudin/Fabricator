@@ -47,6 +47,14 @@ Use these principles for every Fabricator Publish task.
 - User-facing public changes must flow through the canonical public repository.
   A local checkout, local marketplace, or installed cache can be useful
   diagnostic evidence, but it is not final public evidence by itself.
+- Before repository creation, remote configuration, push, tag, or GitHub
+  Release work, separate local Git state from account/platform state. Check
+  `git status`, `git remote -v`, `gh auth status`, and whether the available
+  GitHub connector can perform the requested operation. If auth is missing or
+  invalid and the connector cannot do it, stop with `Pending user/platform
+  action` and the exact user step. Do not start `gh auth login --web` during a
+  normal release turn because it can leave the task hanging in an interactive
+  browser/device-login state.
 - When network access is available, verify raw public artifacts after push:
   at minimum the public `README.md` and package `.codex-plugin/plugin.json`.
   These catch "works locally" releases where the GitHub page or package source

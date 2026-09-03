@@ -60,6 +60,16 @@ only a chat convention with the user.
 - Use current official sources when platform behavior or a technical obstacle
   is uncertain. Keep any workaround narrow, reversible, and separate from the
   product contract.
+- Before GitHub remote creation, push, tag, or release work, run an auth and
+  capability preflight: local Git status, existing remotes, `gh auth status`,
+  and available GitHub connector capabilities. If `gh` auth is missing or
+  invalid and the connector cannot perform the requested action, stop at a
+  clear user-action boundary. Do not start `gh auth login --web` or another
+  long-running interactive device login unless the user explicitly asked for
+  that flow and is ready to complete it now.
+- Keep local Git readiness separate from GitHub readiness in status reports.
+  A local repo and checkpoint commit may be complete while remote creation,
+  push, tags, or releases remain blocked by account/auth state.
 - If a plugin uses lifecycle hooks, design the hook command and the update
   workflow as one contract. Avoid direct fragile versioned installed-cache paths
   where a cachebuster can leave the active thread pointing at a removed bundle;

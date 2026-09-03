@@ -13,6 +13,12 @@ Use this before tagging a public Fabricator release.
 
 ## Repository
 
+- Confirm local Git status, existing remotes, `gh` auth status, and available
+  GitHub connector capabilities before remote creation, push, tag, or GitHub
+  Release work.
+- If GitHub authentication is missing or invalid, stop with the exact
+  user-action boundary. Do not start long-running interactive auth flows during
+  a normal release turn.
 - Confirm `README.md` explains what, why, install, use, update, and license
   without a main-page internal development command block.
 - Confirm `README.md` visible content matches the release being published.

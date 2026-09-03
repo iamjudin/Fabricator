@@ -47,6 +47,11 @@ chooses public publication.
 8. For plugin architecture, manifests, marketplace behavior, skills, hooks,
    installation, or other platform facts, verify current official Codex/OpenAI
    documentation before making the design a rule.
+9. Before GitHub remote creation, push, tag, or release work, check local Git
+   status, existing remotes, `gh` auth status, and available GitHub connector
+   capabilities. If auth is missing or invalid, stop with a concrete user
+   action instead of starting an interactive auth flow that can leave the task
+   stuck `inProgress`.
 
 Read `references/working-principles.md` before designing a workflow or making
 substantive changes.
@@ -112,6 +117,9 @@ substantive changes.
 9. Run focused tests, the official plugin validator, and `git diff --check` at
    meaningful boundaries. Commit focused validated stages unless the user asks
    otherwise.
+10. Distinguish local Git readiness from GitHub readiness. A local repository
+    and checkpoint commit can be complete even when remote creation, push, or
+    release is blocked by account/auth state.
 
 ## Communication and handoff
 

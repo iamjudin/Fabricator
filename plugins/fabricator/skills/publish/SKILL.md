@@ -44,6 +44,10 @@ publication.
    ambiguous, ask one concise clarification before switching to Publish.
 4. Verify current official Codex/OpenAI or GitHub facts when platform behavior
    matters and is not already proven in the project.
+5. Run a GitHub auth and remote preflight before any remote creation, push, tag,
+   or release step: local Git status, existing remotes, `gh auth status`, and
+   available GitHub connector capabilities. If auth is missing or invalid, stop
+   with the exact user action instead of starting an interactive auth flow.
 
 ## Public Package Gates
 
@@ -95,6 +99,9 @@ Verify public repository presentation:
     tag exists locally and remotely, GitHub Release notes exist for that tag,
     and GitHub no longer presents the repository as having no published
     releases.
+14. If GitHub auth or remote creation is blocked, report `Pending
+    user/platform action` with the exact missing step. Do not call the release
+    ready and do not leave an interactive login command running inside the task.
 
 ## Downstream Impact
 

@@ -33,6 +33,20 @@
 - If an artifact must remain outside the project, record why, where it lives,
   and who owns cleanup. Do not let global temp become hidden project storage.
 
+## Git Remote And Auth Boundaries
+
+- Before creating a GitHub repository, adding a remote, pushing, tagging, or
+  creating a release, check the local Git state, existing remotes, `gh` auth
+  status, and available GitHub connector capabilities.
+- Do not start long-running interactive auth flows such as `gh auth login
+  --web` inside an agent turn unless the user explicitly asked for that exact
+  interactive flow and is ready to complete it now. If authentication is
+  missing or invalid, stop at a clear user-action boundary with the exact next
+  step, then resume after the user confirms auth is ready.
+- Distinguish local Git readiness from GitHub readiness. A local repository and
+  checkpoint commit can be complete while remote creation, push, tags, or
+  releases are blocked by account/auth state.
+
 ## Context Moves
 
 - When continuing work after a context move, restart with a compact handoff

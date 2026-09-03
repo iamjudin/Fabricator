@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.15] - 2026-09-03
+
+- Added a Git remote/auth boundary for Craft and Publish: check local remotes,
+  `gh` authentication, and available GitHub connector capabilities before
+  creating repositories, pushing, tagging, or releasing.
+- Agents must not start long-running interactive `gh auth login --web` flows
+  during normal project work. If authentication is missing or invalid, stop
+  with the exact user action and resume after the user confirms auth is ready.
+- Clarified the difference between local Git readiness and GitHub readiness so
+  a local checkpoint can be complete while remote creation or push remains
+  blocked by account state.
+
 ## [0.2.14] - 2026-08-25
 
 - Removed the Watch workflow and its scheduled/passive monitoring contract.

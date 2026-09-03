@@ -20,6 +20,12 @@
 
 ## Runtime and release
 
+- [x] Gate GitHub remote and auth before repository creation or push
+  - Evidence: September 3, 2026, thread `019fae69-7f27-7be0-a4d9-e9cca2d35e67` (`Составь запрос для дипресёрча`): Wireframer had local Git commits but no remote; `gh auth status` reported an invalid token, then the task started `gh auth login -h github.com --web` and remained `inProgress` waiting for device-login completion.
+  - Owner: Fabricator
+  - Suggested next action: Craft/Publish should preflight local remotes, `gh` authentication, and GitHub connector capabilities before remote creation/push/release; if auth is missing or invalid, stop with an exact user-action boundary instead of starting a long-running interactive auth command.
+  - Released in: Fabricator `0.2.15`.
+
 - [x] Discover plugin source path before running maintenance tests
   - Evidence: July 24, 2026, thread `019f9348-9b2e-75b1-8632-9a9b5e56a640` (`Bookworm weekly runtime drift`): the monitor first ran tests from the repository root, where `tests` was not importable, then reran from the actual plugin source path `plugins/bookworm` and passed 72/72 tests.
   - Owner: Fabricator

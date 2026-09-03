@@ -112,8 +112,12 @@ def validate_skills() -> None:
         fail("Craft skill must classify project surfaces and require an understanding gate")
     if "global temp" not in craft or "project-owned" not in craft:
         fail("Craft skill must require project-owned workspace hygiene")
+    if "auth status" not in craft or "connector" not in craft or "interactive auth flow" not in craft:
+        fail("Craft skill must require GitHub remote/auth preflight")
     if "GitHub Release" not in publish or "pushed tag" not in publish:
         fail("Publish skill must require GitHub Release and pushed tag evidence")
+    if "auth status" not in publish or "interactive auth flow" not in publish:
+        fail("Publish skill must stop before blocked interactive GitHub auth")
     if "clarify" not in craft.lower() or "Publish" not in craft:
         fail("Craft skill must route ambiguous publication intent")
     if (PLUGIN / "skills" / "watch").exists():
@@ -140,6 +144,8 @@ def validate_public_docs() -> None:
     for required in ("raw public", "isolated `CODEX_HOME`", "local marketplace smoke", "propagation", "Downstream Impact", "GitHub Release notes", "Post-Release Learning"):
         if required not in checklist:
             fail(f"release checklist must mention {required}")
+    if "auth status" not in checklist or "GitHub connector capabilities" not in checklist:
+        fail("release checklist must include GitHub auth preflight")
     ok("public docs are present")
 
 

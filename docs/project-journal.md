@@ -254,3 +254,32 @@ Evidence:
 Article angle: the cleanest way to retire a failed workflow is to remove its
 buttons, contracts, and validators. A rule that says "ignore this old thing" is
 itself a product tail.
+
+## 2026-09-03 - GitHub auth became an explicit boundary
+
+Wireframer field work exposed a remote-publication failure mode: a project can
+be locally healthy and committed while GitHub remains blocked by account state.
+In thread `019fae69-7f27-7be0-a4d9-e9cca2d35e67`, `gh auth status` reported an
+invalid token, then the task started `gh auth login -h github.com --web` and
+remained `inProgress` waiting for device login.
+
+Fabricator `0.2.15` turns that into a boundary instead of a background wait.
+Craft and Publish now preflight local Git status, existing remotes, `gh` auth
+status, and GitHub connector capabilities before creating repositories,
+pushing, tagging, or releasing. If auth is missing or invalid, the correct
+state is `Pending user/platform action` with the exact user step; the agent
+should resume after the user confirms auth is ready.
+
+Evidence:
+
+- Thread `019fae69-7f27-7be0-a4d9-e9cca2d35e67`
+- `AGENTS.md`
+- `plugins/fabricator/skills/craft/SKILL.md`
+- `plugins/fabricator/skills/publish/SKILL.md`
+- `docs/release-checklist.md`
+- `docs/backlog.md`
+- `scripts/validate-public.py`
+
+Article angle: GitHub readiness is not the same thing as local Git readiness.
+Interactive auth is a user/platform boundary, not an agent task to leave
+running in the background.
